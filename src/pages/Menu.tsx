@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import { useCart } from '../context/CartContext';
-import { menuItems, categories } from '../data/menuData';
+import { menuItems, categories, Category } from '../data/menuData';
 import { currentConfig } from '../config/foodCartConfig';
+import MenuItemCard from '../components/MenuItemCard';
 import './Menu.css';
 
-
-
 const Menu: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState<Category>(Category.all);
   const [selectedQuantities, setSelectedQuantities] = useState<{ [key: number]: number }>({});
-  const { addItem } = useCart();
 
-  const filteredItems = activeCategory === 'all' 
-    ? menuItems 
+  const filteredItems = activeCategory === Category.all
+    ? menuItems
     : menuItems.filter(item => item.category === activeCategory);
 
   return (
@@ -41,61 +38,12 @@ const Menu: React.FC = () => {
         {/* Menu Items */}
         <div className="menu-grid">
           {filteredItems.map(item => (
-            <div key={item.id} className={`menu-item ${item.popular ? 'popular' : ''}`}>
-              {item.popular && <span className="popular-badge">🔥 Popular</span>}
-              <div className="item-emoji">{item.emoji}</div>
-              <div className="item-content">
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                
-                {/* Quantity selection for bao items */}
-                {item.category === 'bao' && item.options && (
-                  <div className="quantity-selector">
-                    <label>Quantity:</label>
-                    <select
-                      value={selectedQuantities[item.id] || 2}
-                      onChange={(e) => setSelectedQuantities({
-                        ...selectedQuantities,
-                        [item.id]: parseInt(e.target.value)
-                      })}
-                    >
-                      {item.options.map(option => (
-                        <option key={option.quantity} value={option.quantity}>
-                          {option.quantity} for ${option.price.toFixed(2)}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                
-                <div className="item-footer">
-                  <span className="item-price">
-                    ${item.category === 'bao' && item.options 
-                      ? item.options.find(opt => opt.quantity === (selectedQuantities[item.id] || 2))?.price.toFixed(2) || item.price.toFixed(2)
-                      : item.price.toFixed(2)
-                    }
-                  </span>
-                  <button 
-                    className="add-to-cart-btn"
-                    onClick={() => {
-                      const quantity = item.category === 'bao' ? (selectedQuantities[item.id] || 2) : 1;
-                      const price = item.category === 'bao' && item.options 
-                        ? item.options.find(opt => opt.quantity === quantity)?.price || item.price
-                        : item.price;
-                      
-                      addItem({
-                        id: item.id,
-                        name: `${item.name}${quantity > 1 ? ` (${quantity} bao)` : ''}`,
-                        price: price,
-                        emoji: item.emoji
-                      });
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
+            <MenuItemCard
+              key={item.id}
+              item={item}
+              selectedQuantity={selectedQuantities[item.id]}
+              onQuantityChange={q => setSelectedQuantities({ ...selectedQuantities, [item.id]: q })}
+            />
           ))}
         </div>
 
