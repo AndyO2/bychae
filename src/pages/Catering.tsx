@@ -250,33 +250,6 @@ const Catering: React.FC = () => {
             </form>
           </div>
         </div>
-
-        {/* Additional Services */}
-        <div className="additional-services">
-          <h2>🔧 Additional Services</h2>
-          <div className="services-grid">
-            <div className="service-item">
-              <div className="service-icon">🎨</div>
-              <h3>Custom Menu Design</h3>
-              <p>Work with our chef to create a unique menu for your event.</p>
-            </div>
-            <div className="service-item">
-              <div className="service-icon">🥗</div>
-              <h3>Dietary Accommodations</h3>
-              <p>We accommodate vegetarian, vegan, gluten-free, and other dietary needs.</p>
-            </div>
-            <div className="service-item">
-              <div className="service-icon">🍰</div>
-              <h3>Dessert Options</h3>
-              <p>Add custom desserts and pastries to complete your meal.</p>
-            </div>
-            <div className="service-item">
-              <div className="service-icon">🚚</div>
-              <h3>Delivery & Setup</h3>
-              <p>We handle delivery, setup, and cleanup for your convenience.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

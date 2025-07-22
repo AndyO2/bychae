@@ -28,6 +28,11 @@ const Header: React.FC = () => {
           <Link to="/" onClick={closeMenu}>
             <h1>{currentConfig.logo} {currentConfig.name}</h1>
           </Link>
+          {/* <img 
+            src="/images/breaking-buns/breaking-buns-logo.jpg" 
+            alt={currentConfig.name}
+            className="logo-image"
+          /> */}
         </div>
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

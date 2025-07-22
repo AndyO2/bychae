@@ -4,10 +4,21 @@ import { currentConfig } from '../config/foodCartConfig';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const heroStyle = currentConfig.assets.heroImage
+    ? {
+        backgroundImage: `url(${currentConfig.assets.heroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative' as const,
+      }
+    : {};
+
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero">
+      <section className="hero" style={heroStyle}>
+        {currentConfig.assets.heroImage && <div className="hero-overlay" />}
         <div className="hero-content">
           <h1>{currentConfig.tagline}</h1>
           <p>{currentConfig.description}</p>
@@ -18,9 +29,11 @@ const Home: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="hero-image">
-          <div className="food-cart-illustration">{currentConfig.logo}</div>
-        </div>
+        {!currentConfig.assets.heroImage && (
+          <div className="hero-image">
+            <div className="food-cart-illustration">{currentConfig.logo}</div>
+          </div>
+        )}
       </section>
 
       {/* Featured Items */}
