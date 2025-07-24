@@ -43,6 +43,11 @@ export interface FoodCartConfig {
     acceptsOnlineOrders: boolean;
   };
   
+  // API Keys (from environment variables)
+  apiKeys?: {
+    googleMaps?: string;
+  };
+  
   // SEO
   seo: {
     title: string;
@@ -88,6 +93,10 @@ export const breakingBunsConfig: FoodCartConfig = {
     hasPickup: true,
     hasCatering: true,
     acceptsOnlineOrders: true
+  },
+  
+  apiKeys: {
+    googleMaps: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
   },
   
   seo: {

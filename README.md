@@ -1,6 +1,46 @@
-# Getting Started with Create React App
+# Food Cart Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive food cart website built with React and TypeScript. Features include online ordering, menu display, hours and location, and Square API integration.
+
+## Environment Setup
+
+Before running the application, you need to set up your environment variables:
+
+1. Copy the example environment file:
+   ```bash
+   cp env.example .env.local
+   ```
+
+2. Edit `.env.local` and add your API keys:
+   ```bash
+   # Square API Configuration
+   REACT_APP_SQUARE_APPLICATION_ID=your_square_application_id_here
+   REACT_APP_SQUARE_LOCATION_ID=your_square_location_id_here
+   REACT_APP_SQUARE_ACCESS_TOKEN=your_square_access_token_here
+   REACT_APP_SQUARE_ENVIRONMENT=sandbox
+
+   # Google Maps API Configuration
+   REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+   ```
+
+### Getting API Keys
+
+**Square API:**
+- Go to [Square Developer Dashboard](https://developer.squareup.com/)
+- Create a new application
+- Get your Application ID, Location ID, and Access Token
+
+**Google Maps API:**
+- Go to [Google Cloud Console](https://console.cloud.google.com/)
+- Create a new project or select existing one
+- Enable "Maps Embed API"
+- Create credentials (API key)
+- Restrict the API key to your domain for security
+
+### Security Notes
+- Never commit your `.env.local` file to version control
+- The `.env.local` file is already in `.gitignore`
+- Restrict your API keys to your domain in the respective developer consoles
 
 ## Available Scripts
 

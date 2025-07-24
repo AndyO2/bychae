@@ -98,7 +98,6 @@ const Hours: React.FC = () => {
 
   const isCurrentlyOpen = () => {
     const now = new Date();
-    const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
     
@@ -190,15 +189,31 @@ const Hours: React.FC = () => {
               <p>✉️ {currentConfig.email}</p>
             </div>
             <div className="location-map">
-              <iframe 
-                title="Location Map"
-                width="100%" 
-                height="300" 
-                style={{ border: 0 }} 
-                loading="lazy" 
-                allowFullScreen
-                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=AIzaSyBEJJ8KUKi6EDygRnNHZrj9QcmhCal8IMI"
-              />
+              {process.env.REACT_APP_GOOGLE_MAPS_API_KEY ? (
+                <iframe 
+                  title="Location Map"
+                  width="100%" 
+                  height="300" 
+                  style={{ border: 0 }} 
+                  loading="lazy" 
+                  allowFullScreen
+                  src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
+                />
+              ) : (
+                <div className="map-placeholder">
+                  <div className="map-icon">🗺️</div>
+                  <h3>Location</h3>
+                  <p>{currentConfig.address}</p>
+                  <a 
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentConfig.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="directions-btn"
+                  >
+                    📍 Get Directions on Google Maps
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
