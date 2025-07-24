@@ -156,101 +156,67 @@ const Hours: React.FC = () => {
           </div>
         </div>
 
-        {/* Hours Table */}
-        <div className="hours-section">
-          <h2>Operating Hours</h2>
-          <div className="hours-table">
-            {hours.map((day, index) => (
-              <div 
-                key={index} 
-                className={`hours-row ${day.day === currentDay ? 'current-day' : ''}`}
-              >
-                <div className="day">{day.day}</div>
-                <div className="time">
-                  {day.isOpen ? `${day.open} - ${day.close}` : 'Closed'}
+        {/* Hours and Location Side by Side */}
+        <div className="hours-location-grid">
+          {/* Hours Table */}
+          <div className="hours-section">
+            <h2>Operating Hours</h2>
+            <div className="hours-table">
+              {hours.map((day, index) => (
+                <div 
+                  key={index} 
+                  className={`hours-row ${day.day === currentDay ? 'current-day' : ''}`}
+                >
+                  <div className="day">{day.day}</div>
+                  <div className="time">
+                    {day.isOpen ? `${day.open} - ${day.close}` : 'Closed'}
+                  </div>
+                  <div className="status">
+                    {day.day === currentDay && isCurrentlyOpen() ? '🟢 Open Now' : 
+                     day.day === currentDay ? '🔴 Closed' : ''}
+                  </div>
                 </div>
-                <div className="status">
-                  {day.day === currentDay && isCurrentlyOpen() ? '🟢 Open Now' : 
-                   day.day === currentDay ? '🔴 Closed' : ''}
-                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Location */}
+          <div className="location-section">
+            <h2>📍 Find Us</h2>
+            <div className="location-card">
+              <div className="location-info">
+                <h3>{currentConfig.name} Location</h3>
+                <p>📍 {currentConfig.address}</p>
+                <p>📞 {currentConfig.phone}</p>
+                <p>✉️ {currentConfig.email}</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Location */}
-        <div className="location-section">
-          <h2>📍 Find Us</h2>
-          <div className="location-card">
-            <div className="location-info">
-              <h3>{currentConfig.name} Location</h3>
-              <p>📍 {currentConfig.address}</p>
-              <p>📞 {currentConfig.phone}</p>
-              <p>✉️ {currentConfig.email}</p>
-            </div>
-            <div className="location-map">
-              {process.env.REACT_APP_GOOGLE_MAPS_API_KEY ? (
-                <iframe 
-                  title="Location Map"
-                  width="100%" 
-                  height="300" 
-                  style={{ border: 0 }} 
-                  loading="lazy" 
-                  allowFullScreen
-                  src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
-                />
-              ) : (
-                <div className="map-placeholder">
-                  <div className="map-icon">🗺️</div>
-                  <h3>Location</h3>
-                  <p>{currentConfig.address}</p>
-                  <a 
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentConfig.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="directions-btn"
-                  >
-                    📍 Get Directions on Google Maps
-                  </a>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Special Hours */}
-        <div className="special-hours">
-          <h2>📅 Special Hours</h2>
-          <div className="special-notice">
-            <h3>Holiday Hours</h3>
-            <p>We may have modified hours during holidays. Please call ahead to confirm our schedule.</p>
-            <p><strong>Thanksgiving:</strong> Closed</p>
-            <p><strong>Christmas:</strong> Closed</p>
-            <p><strong>New Year's Day:</strong> 2:00 PM - 8:00 PM</p>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className="contact-section">
-          <h2>📞 Contact Information</h2>
-          <div className="contact-grid">
-            <div className="contact-item">
-              <div className="contact-icon">📞</div>
-              <h3>Phone</h3>
-              <p>{currentConfig.phone}</p>
-              <p>Call for large orders</p>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon">✉️</div>
-              <h3>Email</h3>
-              <p>{currentConfig.email}</p>
-              <p>For catering inquiries</p>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon">📱</div>
-              <h3>Social Media</h3>
-              <p>{currentConfig.socialMedia?.instagram || '@foodcart'}</p>
-              <p>Follow for updates</p>
+              <div className="location-map">
+                {process.env.REACT_APP_GOOGLE_MAPS_API_KEY ? (
+                  <iframe 
+                    title="Location Map"
+                    width="100%" 
+                    height="300" 
+                    style={{ border: 0 }} 
+                    loading="lazy" 
+                    allowFullScreen
+                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
+                  />
+                ) : (
+                  <div className="map-placeholder">
+                    <div className="map-icon">🗺️</div>
+                    <h3>Location</h3>
+                    <p>{currentConfig.address}</p>
+                    <a 
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentConfig.address)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="directions-btn"
+                    >
+                      📍 Get Directions on Google Maps
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

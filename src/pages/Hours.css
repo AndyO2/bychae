@@ -4,7 +4,7 @@
 }
 
 .hours-header {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #042209, #0a3d1a);
   color: white;
   padding: 4rem 0;
   text-align: center;
@@ -13,11 +13,13 @@
 .hours-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .hours-header p {
   font-size: 1.2rem;
   opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .container {
@@ -61,13 +63,23 @@
   font-size: 1.1rem;
 }
 
+/* Hours and Location Grid */
+.hours-location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  align-items: stretch;
+}
+
 /* Hours Section */
 .hours-section {
   background: white;
   border-radius: 15px;
   padding: 2rem;
-  margin: 2rem 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .hours-section h2 {
@@ -81,6 +93,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
 }
 
 .hours-row {
@@ -97,8 +110,23 @@
 }
 
 .hours-row.current-day {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #042209, #0a3d1a);
   color: white;
+}
+
+.hours-row.current-day .day {
+  color: white;
+  font-weight: 700;
+}
+
+.hours-row.current-day .time {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.hours-row.current-day .status {
+  color: white;
+  font-weight: 700;
 }
 
 .day {
@@ -124,8 +152,9 @@
   background: white;
   border-radius: 15px;
   padding: 2rem;
-  margin: 2rem 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .location-section h2 {
@@ -136,10 +165,10 @@
 }
 
 .location-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
 }
 
 .location-info h3 {
@@ -312,6 +341,11 @@
     gap: 1rem;
   }
 
+  .hours-location-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .hours-row {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -319,7 +353,7 @@
   }
 
   .location-card {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1rem;
   }
 

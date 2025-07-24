@@ -4,7 +4,7 @@
 }
 
 .about-header {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #042209, #0a3d1a);
   color: white;
   padding: 4rem 0;
   text-align: center;
@@ -13,11 +13,13 @@
 .about-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .about-header p {
   font-size: 1.2rem;
   opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .container {
@@ -150,7 +152,7 @@
 }
 
 .member-title {
-  color: #ff6b6b;
+  color: #042209;
   font-weight: 600;
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -286,23 +288,23 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #042209, #0a3d1a);
   color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 10px 25px rgba(4, 34, 9, 0.3);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #ff6b6b;
-  border-color: #ff6b6b;
+  color: #042209;
+  border-color: #042209;
 }
 
 .btn-secondary:hover {
-  background: #ff6b6b;
+  background: #042209;
   color: white;
   transform: translateY(-3px);
 }
