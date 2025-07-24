@@ -27,8 +27,8 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, selectedQuantity, onQ
         </div>
       )}
       <div className="item-content">
-        <h3>{item.name}</h3>
-        <p>{item.description}</p>
+        <h3 className="item-name">{item.name}</h3>
+        <p className="item-description">{item.description}</p>
         <div className="item-footer">
           <span className="item-price">${price.toFixed(2)}</span>
           <button

@@ -25,7 +25,9 @@ const Home: React.FC = () => {
           <div className="hero-buttons">
             <Link to="/menu" className="btn btn-primary">View Menu</Link>
             {currentConfig.features.hasCatering && (
-              <Link to="/catering" className="btn btn-secondary">Catering</Link>
+              <div className="hero-button">
+                <Link to="/catering" className="btn btn-secondary">Catering</Link>
+              </div>
             )}
           </div>
         </div>

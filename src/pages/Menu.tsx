@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { menuItems, categories, Category } from '../data/menuData';
-import { currentConfig } from '../config/foodCartConfig';
 import MenuItemCard from '../components/MenuItemCard';
 import './Menu.css';
 
@@ -8,19 +7,18 @@ const Menu: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category>(Category.all);
   const [selectedQuantities, setSelectedQuantities] = useState<{ [key: number]: number }>({});
 
-  const filteredItems = activeCategory === Category.all
+  const filteredItems = (activeCategory === Category.all
     ? menuItems
-    : menuItems.filter(item => item.category === activeCategory);
+    : menuItems.filter(item => item.category === activeCategory)
+  ).sort((a, b) => {
+    // Sort popular items first   
+    if (a.popular && !b.popular) return -1;
+    if (!a.popular && b.popular) return 1;
+    return 0;
+  });
 
   return (
     <div className="menu">
-      <div className="menu-header">
-        <div className="container">
-          <h1>{currentConfig.name} Menu</h1>
-          <p>{currentConfig.description}</p>
-        </div>
-      </div>
-
       <div className="container">
         {/* Category Filter */}
         <div className="category-filter">
@@ -48,10 +46,10 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Special Notice */}
-        <div className="menu-notice">
+        {/* <div className="menu-notice">
           <h3>🥟 Gua Bao Specials</h3>
           <p>All Gua Bao items come in quantities of 2, 3, or 4. Choose your preferred quantity when ordering!</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

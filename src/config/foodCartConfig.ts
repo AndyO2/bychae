@@ -53,7 +53,7 @@ export interface FoodCartConfig {
 
 // Default configuration for Breaking Buns PDX
 export const breakingBunsConfig: FoodCartConfig = {
-  name: "Breaking Buns PDX",
+  name: "Breaking Buns",
   tagline: "Authentic Asian Street Food",
   description: "Fresh, flavorful Gua Bao (steamed buns) and noodles made with love. Breaking Buns PDX brings authentic Asian street food to Portland.",
   

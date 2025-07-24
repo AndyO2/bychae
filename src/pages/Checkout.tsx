@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useCart } from '../context/CartContext';
+import { useOrder, CustomerInfo } from '../context/OrderContext';
+import { squareConfig } from '../config/squareConfig';
 import './Checkout.css';
 
 const Checkout: React.FC = () => {
   const navigate = useNavigate();
   const { state, getTotalPrice, clearCart } = useCart();
+  const { createOrder, state: orderState, clearError } = useOrder();
+  
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     pickupTime: '',
-    specialInstructions: ''
+    specialInstructions: '',
+    tipAmount: 0
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -22,17 +27,58 @@ const Checkout: React.FC = () => {
     }));
   };
 
+  const handleTipChange = (tipPercentage: number) => {
+    const subtotal = getTotalPrice();
+    const tipAmount = subtotal * tipPercentage;
+    setFormData(prev => ({
+      ...prev,
+      tipAmount
+    }));
+  };
+
+  const calculatePickupTime = (minutes: string): string => {
+    const now = new Date();
+    const pickupTime = new Date(now.getTime() + parseInt(minutes) * 60 * 1000);
+    return pickupTime.toISOString();
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    clearError();
 
-    // Simulate order processing
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const customerInfo: CustomerInfo = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+      };
 
-    // Clear cart and redirect to confirmation
-    clearCart();
-    navigate('/order-confirmation');
+      const pickupTime = formData.pickupTime ? calculatePickupTime(formData.pickupTime) : undefined;
+
+      // Create order in Square
+      const orderResponse = await createOrder(
+        state.items,
+        customerInfo,
+        pickupTime,
+        formData.specialInstructions,
+        formData.tipAmount
+      );
+
+      // Clear cart and redirect to order confirmation
+      clearCart();
+      navigate('/order-confirmation', { 
+        state: { orderId: orderResponse.orderId, orderNumber: orderResponse.orderNumber }
+      });
+    } catch (error) {
+      console.error('Error creating order:', error);
+      // Error is handled by the OrderContext
+    }
   };
+
+  const subtotal = getTotalPrice();
+  const taxAmount = subtotal * (squareConfig.order.taxRate || 0);
+  const serviceChargeAmount = subtotal * (squareConfig.order.serviceChargeRate || 0);
+  const totalAmount = subtotal + taxAmount + serviceChargeAmount + formData.tipAmount;
 
   if (state.items.length === 0) {
     return (
@@ -60,6 +106,13 @@ const Checkout: React.FC = () => {
       </div>
 
       <div className="container">
+        {orderState.error && (
+          <div className="error-message">
+            <p>{orderState.error}</p>
+            <button onClick={clearError} className="error-close">×</button>
+          </div>
+        )}
+
         <div className="checkout-content">
           <div className="order-summary">
             <h2>Order Summary</h2>
@@ -77,8 +130,30 @@ const Checkout: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="order-total">
-              <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
+            
+            <div className="order-breakdown">
+              <div className="breakdown-item">
+                <span>Subtotal:</span>
+                <span>${subtotal.toFixed(2)}</span>
+              </div>
+              <div className="breakdown-item">
+                <span>Tax ({(squareConfig.order.taxRate || 0) * 100}%):</span>
+                <span>${taxAmount.toFixed(2)}</span>
+              </div>
+              <div className="breakdown-item">
+                <span>Service Charge ({(squareConfig.order.serviceChargeRate || 0) * 100}%):</span>
+                <span>${serviceChargeAmount.toFixed(2)}</span>
+              </div>
+              {formData.tipAmount > 0 && (
+                <div className="breakdown-item">
+                  <span>Tip:</span>
+                  <span>${formData.tipAmount.toFixed(2)}</span>
+                </div>
+              )}
+              <div className="breakdown-item total">
+                <span>Total:</span>
+                <span>${totalAmount.toFixed(2)}</span>
+              </div>
             </div>
           </div>
 
@@ -95,6 +170,19 @@ const Checkout: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   placeholder="Your full name"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="your.email@example.com"
                 />
               </div>
 
@@ -129,6 +217,22 @@ const Checkout: React.FC = () => {
               </div>
 
               <div className="form-group">
+                <label>Tip</label>
+                <div className="tip-options">
+                  {squareConfig.order.tipOptions?.map((tipPercentage) => (
+                    <button
+                      key={tipPercentage}
+                      type="button"
+                      className={`tip-option ${formData.tipAmount === subtotal * tipPercentage ? 'selected' : ''}`}
+                      onClick={() => handleTipChange(tipPercentage)}
+                    >
+                      {tipPercentage === 0 ? 'No Tip' : `${tipPercentage * 100}%`}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="form-group">
                 <label htmlFor="specialInstructions">Special Instructions</label>
                 <textarea
                   id="specialInstructions"
@@ -151,9 +255,9 @@ const Checkout: React.FC = () => {
                 <button
                   type="submit"
                   className="submit-btn"
-                  disabled={isSubmitting}
+                  disabled={orderState.isLoading}
                 >
-                  {isSubmitting ? 'Processing...' : 'Place Order'}
+                  {orderState.isLoading ? 'Creating Order...' : 'Place Order'}
                 </button>
               </div>
             </form>

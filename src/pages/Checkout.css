@@ -26,6 +26,37 @@
   padding: 0 2rem;
 }
 
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #c33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message p {
+  margin: 0;
+  flex: 1;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  color: #c33;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.error-close:hover {
+  color: #a00;
+}
+
 .checkout-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -92,6 +123,28 @@
   font-size: 1.1rem;
 }
 
+.order-breakdown {
+  border-top: 2px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: #2c3e50;
+}
+
+.breakdown-item.total {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+}
+
 .order-total {
   border-top: 2px solid #eee;
   padding-top: 1.5rem;
@@ -149,6 +202,36 @@
 .form-group textarea {
   resize: vertical;
   min-height: 80px;
+}
+
+.tip-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tip-option {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.8rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #2c3e50;
+}
+
+.tip-option:hover {
+  border-color: #ff6b6b;
+  background: #fff5f5;
+}
+
+.tip-option.selected {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+  color: white;
 }
 
 .form-actions {
@@ -258,5 +341,9 @@
 
   .checkout-header h1 {
     font-size: 2rem;
+  }
+
+  .tip-options {
+    grid-template-columns: repeat(2, 1fr);
   }
 } 

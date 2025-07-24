@@ -4,12 +4,7 @@ import './Footer.css';
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-section">
-          <h3>🍔 Food Cart</h3>
-          <p>Delicious food served with love and care. Fresh ingredients, amazing flavors.</p>
-        </div>
-        
+      <div className="footer-container">        
         <div className="footer-section">
           <h4>Contact Info</h4>
           <p>📍 123 Food Street, City, State</p>
