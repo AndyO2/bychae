@@ -62,8 +62,8 @@ export const breakingBunsConfig: FoodCartConfig = {
   address: "5523 SE 28th Ave, Portland, OR 97202",
   
   hours: {
-    "Monday-Thursday": "3-11pm",
-    "Friday-Saturday": "12-11pm",
+    "Monday-Thursday": "3pm-11pm",
+    "Friday-Saturday": "12pm-11pm",
     "Sunday": "Closed"
   },
   
@@ -169,8 +169,8 @@ export const burgerCartConfig: FoodCartConfig = {
   },
   
   socialMedia: {
-    instagram: "@burgercart",
-    facebook: "BurgerCart"
+    instagram: "@breakingbunspdx",
+    facebook: "BreakingBunsPDX"
   },
   
   features: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { currentConfig } from '../config/foodCartConfig';
 import './Hours.css';
 
 interface DayHours {
@@ -16,15 +17,84 @@ const Hours: React.FC = () => {
     hour12: true 
   });
 
-  const hours: DayHours[] = [
-    { day: 'Monday', open: '11:00 AM', close: '9:00 PM', isOpen: true },
-    { day: 'Tuesday', open: '11:00 AM', close: '9:00 PM', isOpen: true },
-    { day: 'Wednesday', open: '11:00 AM', close: '9:00 PM', isOpen: true },
-    { day: 'Thursday', open: '11:00 AM', close: '9:00 PM', isOpen: true },
-    { day: 'Friday', open: '11:00 AM', close: '10:00 PM', isOpen: true },
-    { day: 'Saturday', open: '12:00 PM', close: '10:00 PM', isOpen: true },
-    { day: 'Sunday', open: '12:00 PM', close: '8:00 PM', isOpen: true },
-  ];
+  // Convert config hours to the format expected by the component
+  const parseConfigHours = (): DayHours[] => {
+    const hours: DayHours[] = [];
+    
+    // Parse the config hours
+    Object.entries(currentConfig.hours).forEach(([days, timeRange]) => {
+      if (timeRange.toLowerCase() === 'closed') {
+        // Handle closed days
+        if (days.includes('-')) {
+          const [startDay, endDay] = days.split('-');
+          const dayRange = getDayRange(startDay, endDay);
+          dayRange.forEach(day => {
+            hours.push({ day, open: '', close: '', isOpen: false });
+          });
+        } else {
+          hours.push({ day: days, open: '', close: '', isOpen: false });
+        }
+      } else {
+        // Handle open days
+        const [open, close] = timeRange.split('-');
+        if (days.includes('-')) {
+          const [startDay, endDay] = days.split('-');
+          const dayRange = getDayRange(startDay, endDay);
+          dayRange.forEach(day => {
+            hours.push({ 
+              day, 
+              open: formatTime(open), 
+              close: formatTime(close), 
+              isOpen: true 
+            });
+          });
+        } else {
+          hours.push({ 
+            day: days, 
+            open: formatTime(open), 
+            close: formatTime(close), 
+            isOpen: true 
+          });
+        }
+      }
+    });
+    
+    // Sort by day order
+    const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    return hours.sort((a, b) => dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));
+  };
+
+  const getDayRange = (startDay: string, endDay: string): string[] => {
+    const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const startIndex = dayOrder.findIndex(day => day.toLowerCase().includes(startDay.toLowerCase()));
+    const endIndex = dayOrder.findIndex(day => day.toLowerCase().includes(endDay.toLowerCase()));
+    
+    if (startIndex === -1 || endIndex === -1) return [];
+    
+    const days = [];
+    let currentIndex = startIndex;
+    do {
+      days.push(dayOrder[currentIndex]);
+      currentIndex = (currentIndex + 1) % 7;
+    } while (currentIndex !== (endIndex + 1) % 7);
+    
+    return days;
+  };
+
+  const formatTime = (time: string): string => {
+    // Convert "3pm" to "3:00 PM", "11pm" to "11:00 PM", etc.
+    const cleanTime = time.trim().toLowerCase();
+    const hour = parseInt(cleanTime.replace(/[^0-9]/g, ''));
+    const isPM = cleanTime.includes('pm');
+    
+    // Keep 12-hour format for display
+    let displayHour = hour;
+    if (hour === 0) displayHour = 12; // Convert 0 to 12 for 12 AM
+    
+    return `${displayHour}:00 ${isPM ? 'PM' : 'AM'}`;
+  };
+
+  const hours = parseConfigHours();
 
   const isCurrentlyOpen = () => {
     const now = new Date();
@@ -32,20 +102,36 @@ const Hours: React.FC = () => {
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
     
-    const today = hours[dayOfWeek === 0 ? 6 : dayOfWeek - 1];
+    // Find today's hours
+    const today = hours.find(day => day.day === currentDay);
     
-    if (!today.isOpen) return false;
+    if (!today || !today.isOpen) return false;
     
-    const [openHour, openMinute] = today.open.split(':').map(Number);
-    const [closeHour, closeMinute] = today.close.split(':').map(Number);
+    // Parse opening time
+    const openMatch = today.open.match(/(\d+):(\d+)\s*(AM|PM)/);
+    if (!openMatch) return false;
     
-    // Convert to 24-hour format
-    const openTime = openHour + (today.open.includes('PM') && openHour !== 12 ? 12 : 0);
-    const closeTime = closeHour + (today.close.includes('PM') && closeHour !== 12 ? 12 : 0);
+    let openHour = parseInt(openMatch[1]);
+    const openMinute = parseInt(openMatch[2]);
+    const openPeriod = openMatch[3];
+    
+    if (openPeriod === 'PM' && openHour !== 12) openHour += 12;
+    if (openPeriod === 'AM' && openHour === 12) openHour = 0;
+    
+    // Parse closing time
+    const closeMatch = today.close.match(/(\d+):(\d+)\s*(AM|PM)/);
+    if (!closeMatch) return false;
+    
+    let closeHour = parseInt(closeMatch[1]);
+    const closeMinute = parseInt(closeMatch[2]);
+    const closePeriod = closeMatch[3];
+    
+    if (closePeriod === 'PM' && closeHour !== 12) closeHour += 12;
+    if (closePeriod === 'AM' && closeHour === 12) closeHour = 0;
     
     const currentTimeMinutes = currentHour * 60 + currentMinute;
-    const openTimeMinutes = openTime * 60 + openMinute;
-    const closeTimeMinutes = closeTime * 60 + closeMinute;
+    const openTimeMinutes = openHour * 60 + openMinute;
+    const closeTimeMinutes = closeHour * 60 + closeMinute;
     
     return currentTimeMinutes >= openTimeMinutes && currentTimeMinutes <= closeTimeMinutes;
   };
@@ -98,15 +184,21 @@ const Hours: React.FC = () => {
           <h2>📍 Find Us</h2>
           <div className="location-card">
             <div className="location-info">
-              <h3>Food Cart Location</h3>
-              <p>📍 123 Food Street, Downtown City, State 12345</p>
-              <p>📞 (555) 123-4567</p>
-              <p>✉️ info@foodcart.com</p>
+              <h3>{currentConfig.name} Location</h3>
+              <p>📍 {currentConfig.address}</p>
+              <p>📞 {currentConfig.phone}</p>
+              <p>✉️ {currentConfig.email}</p>
             </div>
             <div className="location-map">
-              <div className="map-placeholder">
-                🗺️ Interactive Map Coming Soon
-              </div>
+              <iframe 
+                title="Location Map"
+                width="100%" 
+                height="300" 
+                style={{ border: 0 }} 
+                loading="lazy" 
+                allowFullScreen
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=AIzaSyBEJJ8KUKi6EDygRnNHZrj9QcmhCal8IMI"
+              />
             </div>
           </div>
         </div>
@@ -130,19 +222,19 @@ const Hours: React.FC = () => {
             <div className="contact-item">
               <div className="contact-icon">📞</div>
               <h3>Phone</h3>
-              <p>(555) 123-4567</p>
+              <p>{currentConfig.phone}</p>
               <p>Call for large orders</p>
             </div>
             <div className="contact-item">
               <div className="contact-icon">✉️</div>
               <h3>Email</h3>
-              <p>info@foodcart.com</p>
+              <p>{currentConfig.email}</p>
               <p>For catering inquiries</p>
             </div>
             <div className="contact-item">
               <div className="contact-icon">📱</div>
               <h3>Social Media</h3>
-              <p>@foodcart</p>
+              <p>{currentConfig.socialMedia?.instagram || '@foodcart'}</p>
               <p>Follow for updates</p>
             </div>
           </div>
