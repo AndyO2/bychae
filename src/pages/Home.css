@@ -4,7 +4,7 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #042209, #0a3d1a);
   color: white;
   padding: 4rem 0;
   display: flex;
@@ -25,15 +25,19 @@
 .hero-content h1 {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  font-weight: bold;
+  font-weight: 800;
   line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.6;
-  opacity: 0.9;
+  color: white;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
@@ -54,8 +58,9 @@
 }
 
 .btn-primary {
-  background: white;
-  color: #ff6b6b;
+  background: 042209;
+  color: white;
+  font-weight: 700;
 }
 
 .btn-primary:hover {
@@ -67,23 +72,25 @@
   background: transparent;
   color: white;
   border-color: white;
+  font-weight: 700;
 }
 
 .btn-secondary:hover {
   background: white;
-  color: #ff6b6b;
+  color: #042209;
   transform: translateY(-3px);
 }
 
 .btn-outline {
   background: transparent;
-  color: #ff6b6b;
-  border-color: #ff6b6b;
+  color: white;
+  border: 2px solid white;
+  font-weight: 700;
 }
 
 .btn-outline:hover {
-  background: #ff6b6b;
-  color: white;
+  background: white;
+  color: #042209;
   transform: translateY(-3px);
 }
 

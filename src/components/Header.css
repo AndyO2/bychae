@@ -52,6 +52,11 @@
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
+  outline: none;
+}
+
+.nav-link:focus {
+  outline: none;
 }
 
 .nav-link:hover {
@@ -70,6 +75,15 @@
 }
 
 .nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
   width: 100%;
 }
 
