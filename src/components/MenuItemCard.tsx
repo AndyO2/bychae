@@ -1,6 +1,5 @@
 import React from 'react';
-import { MenuItem, Category } from '../data/menuData';
-import { useCart } from '../context/CartContext';
+import { MenuItem } from '../data/menuData';
 import './MenuItemCard.css';
 
 interface MenuItemCardProps {
@@ -10,14 +9,6 @@ interface MenuItemCardProps {
 }
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, selectedQuantity, onQuantityChange }) => {
-  const { addItem } = useCart();
-
-  // Determine price based on quantity for bao
-  const quantity = item.category === Category.bao && item.options ? (selectedQuantity || 2) : 1;
-  const price = item.category === Category.bao && item.options
-    ? item.options.find(opt => opt.quantity === quantity)?.price || item.price
-    : item.price;
-
   return (
     <div className={`menu-item ${item.popular ? 'popular' : ''}`}>
       {item.popular && <span className="popular-badge">🔥 Popular</span>}
@@ -30,20 +21,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, selectedQuantity, onQ
         <h3 className="item-name">{item.name}</h3>
         <p className="item-description">{item.description}</p>
         <div className="item-footer">
-          <span className="item-price">${price.toFixed(2)}</span>
-          <button
-            className="add-to-cart-btn"
-            onClick={() => {
-              addItem({
-                id: item.id,
-                name: `${item.name}${quantity > 1 ? ` (${quantity} bao)` : ''}`,
-                price: price,
-                emoji: ""
-              });
-            }}
-          >
-            Add to Order
-          </button>
+          <span className="item-price">${item.price.toFixed(2)}</span>
         </div>
       </div>
     </div>

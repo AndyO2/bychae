@@ -69,11 +69,11 @@ export const breakingBunsConfig: FoodCartConfig = {
   
   logo: "🥟",
   favicon: "/favicon.ico",
-  primaryColor: "#042209",
-  secondaryColor: "#2ECC71",
+  primaryColor: "#1a1a1a",
+  secondaryColor: "#f5f5f5",
   
   assets: {
-    heroImage: "/images/breaking-buns/bao/bao-tofu.jpg",
+    heroImage: "/images/breaking-buns/breaking-buns-food-cart.jpg",
     logoImage: "/images/breaking-buns-logo.png",
     backgroundImage: "/images/bao-background.jpg"
   },
