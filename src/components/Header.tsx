@@ -66,6 +66,9 @@ const Header: React.FC = () => {
         </Link>
 
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
+          <button className="close-menu-button" onClick={closeMobileMenu}>
+            ✕
+          </button>
           <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={closeMobileMenu}>HOME</Link>
           <Link to="/menu" className={`nav-link ${isActive('/menu') ? 'active' : ''}`} onClick={closeMobileMenu}>MENU</Link>
           <Link to="/hours" className={`nav-link ${isActive('/hours') ? 'active' : ''}`} onClick={closeMobileMenu}>HOURS</Link>
