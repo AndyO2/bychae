@@ -92,7 +92,7 @@ const Home: React.FC = () => {
                 <div className="delivery-logo">
                   <img src="/images/breaking-buns/grubhub.png" alt="GrubHub" />
                 </div>
-                <a href="https://www.grubhub.com/restaurant/breaking-buns-5523-se-28th-ave-portland/2760956" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <a href="https://www.grubhub.com/restaurant/breaking-buns-5523-se-28th-ave-portland/2760956" target="_blank" rel="noopener noreferrer" className="btn btn-grubhub">
                   Order on GrubHub
                 </a>
               </div>
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
                 <div className="delivery-logo">
                   <img src="/images/breaking-buns/ubereats.png" alt="Uber Eats" />
                 </div>
-                <a href="https://www.ubereats.com/store/breaking-buns-pdx-southeast-portland/jWObStTAVfuDqkV1yQzSxQ?diningMode=PICKUP&surfaceName=" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <a href="https://www.ubereats.com/store/breaking-buns-pdx-southeast-portland/jWObStTAVfuDqkV1yQzSxQ?diningMode=PICKUP&surfaceName=" target="_blank" rel="noopener noreferrer" className="btn btn-ubereats">
                   Order on Uber Eats
                 </a>
               </div>

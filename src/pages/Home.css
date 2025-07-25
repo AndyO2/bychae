@@ -307,6 +307,33 @@
   max-width: 200px;
 }
 
+/* Branded delivery buttons */
+.btn-grubhub {
+  background: #ff6b35 !important;
+  color: white !important;
+  border: 2px solid #ff6b35 !important;
+}
+
+.btn-grubhub:hover {
+  background: #e55a2b !important;
+  border-color: #e55a2b !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+}
+
+.btn-ubereats {
+  background: #00c851 !important;
+  color: white !important;
+  border: 2px solid #00c851 !important;
+}
+
+.btn-ubereats:hover {
+  background: #00a041 !important;
+  border-color: #00a041 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 200, 81, 0.3);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .hero-content {
@@ -370,10 +397,12 @@
   .delivery-services {
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
   }
 
   .delivery-service {
     gap: 0.5rem;
+    align-items: center;
   }
 
   .delivery-logo img {
