@@ -71,7 +71,7 @@ const Home: React.FC = () => {
           <h2>Ready to Taste {currentConfig.tagline}?</h2>
           <p>Visit us today and experience the best food in town!</p>
           <div className="cta-buttons">
-            <Link to="/menu" className="btn btn-primary">Order Now</Link>
+            <Link to="/menu" className="btn btn-primary">View Menu</Link>
             <Link to="/hours" className="btn btn-outline">Check Hours</Link>
           </div>
         </div>

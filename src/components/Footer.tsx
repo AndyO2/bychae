@@ -11,22 +11,10 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="footer">
-      <div className="footer-container">        
-        <div className="footer-section">
-          <h4>Contact Info</h4>
-          <p>📍 {currentConfig.address}</p>
-          <p>📞 {currentConfig.phone}</p>
-          <p>✉️ {currentConfig.email}</p>
-        </div>
-        
-        <div className="footer-section">
-          <h4>Hours</h4>
-          {formatHours()}
-        </div>
-        
-        <div className="footer-section">
-          <h4>Follow Us</h4>
+    <footer className="footer">      
+      <div className="footer-bottom">
+        <div className="footer-bottom-content">
+          <p>&copy; 2025 {currentConfig.name}. All rights reserved.</p>
           <div className="social-links">
             {currentConfig.socialMedia?.instagram && (
               <a 
@@ -69,10 +57,6 @@ const Footer: React.FC = () => {
             )}
           </div>
         </div>
-      </div>
-      
-      <div className="footer-bottom">
-        <p>&copy; 2024 {currentConfig.name}. All rights reserved.</p>
       </div>
     </footer>
   );
