@@ -3,13 +3,6 @@ import { currentConfig } from '../config/foodCartConfig';
 import './Footer.css';
 
 const Footer: React.FC = () => {
-  // Format hours for display
-  const formatHours = () => {
-    return Object.entries(currentConfig.hours).map(([days, timeRange]) => (
-      <p key={days}>{days}: {timeRange}</p>
-    ));
-  };
-
   return (
     <footer className="footer">      
       <div className="footer-bottom">

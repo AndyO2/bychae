@@ -171,7 +171,7 @@ const Hours: React.FC = () => {
         <div className="hours-location-grid">
           {/* Hours Table */}
           <div className="hours-section">
-            <h2>Operating Hours</h2>
+            <h2>OPERATING HOURS</h2>
             <div className="hours-table">
               {hours.map((day, index) => (
                 <div 
@@ -193,10 +193,9 @@ const Hours: React.FC = () => {
 
           {/* Location */}
           <div className="location-section">
-            <h2>📍 Find Us</h2>
+            <h2>WHERE TO FIND US</h2>
             <div className="location-card">
               <div className="location-info">
-                <h3>{currentConfig.name} Location</h3>
                 <p>📍 {currentConfig.address}</p>
                 <p>📞 {currentConfig.phone}</p>
                 <p>✉️ {currentConfig.email}</p>

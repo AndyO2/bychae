@@ -61,7 +61,7 @@ const Header: React.FC = () => {
     <header className={headerClass} ref={headerRef}>
       <div className="header-content">
         <Link to="/" className="logo" onClick={closeMobileMenu}>
-          <span className="logo-emoji">{currentConfig.logo}</span>
+          <img src="/images/breaking-buns/breaking-buns-logo.jpg" alt="Breaking Buns Logo" className="logo-image" />
           <span>{currentConfig.name}</span>
         </Link>
 

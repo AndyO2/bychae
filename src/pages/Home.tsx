@@ -41,7 +41,7 @@ const Home: React.FC = () => {
       <section className="catchphrase">
         <div className="container">
           <div className="catchphrase-content">
-            <h2>Where Tradition Meets Innovation</h2>
+            <h2>WHERE TRADITION MEETS INNOVATION</h2>
             <p>Experience the perfect blend of authentic Asian flavors and modern culinary creativity. Every bao tells a story of passion, quality, and the art of breaking bread together.</p>
             <Link to="/about" className="btn btn-primary">Learn More</Link>
           </div>
