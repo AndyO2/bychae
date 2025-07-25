@@ -2,6 +2,9 @@
   background: white;
   color: #222;
   margin-top: 4rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-container {
@@ -116,6 +119,7 @@
   
   .footer {
     padding: 2rem 0 1rem;
+    margin-top: 2rem;
   }
 
   .footer-bottom-content {
