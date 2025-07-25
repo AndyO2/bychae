@@ -1,6 +1,6 @@
 .menu {
   min-height: 100vh;
-  background: var(--background-light);
+  background: var(--background-primary);
 }
 
 .menu-header {
@@ -43,7 +43,7 @@
   border: 2px solid var(--accent-color);
   background: transparent;
   color: var(--accent-color);
-  border-radius: 0;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -73,11 +73,12 @@
 /* Menu Notice */
 .menu-notice {
   background: var(--background-green);
-  border-radius: 15px;
+  border-radius: 12px;
   padding: 2rem;
   text-align: center;
   margin: 3rem 0;
   box-shadow: 0 5px 15px var(--shadow-color);
+  border: 1px solid var(--container-border);
   border-left: 4px solid var(--accent-color);
 }
 

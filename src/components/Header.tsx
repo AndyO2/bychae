@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router';
 import { currentConfig } from '../config/foodCartConfig';
+import { useTheme } from '../context/ThemeContext';
 import './Header.css';
 
 const Header: React.FC = () => {
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -76,6 +78,14 @@ const Header: React.FC = () => {
           <Link to="/hours" className={`nav-link ${isActive('/hours') ? 'active' : ''}`} onClick={closeMobileMenu}>HOURS</Link>
           <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`} onClick={closeMobileMenu}>ABOUT</Link>
         </nav>
+
+        <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
+          <div className="toggle-track">
+            <div className={`toggle-thumb ${theme === 'dark' ? 'dark' : 'light'}`}>
+              {theme === 'light' ? '🌙' : '☀️'}
+            </div>
+          </div>
+        </button>
 
         <button className="mobile-menu-button" onClick={toggleMobileMenu}>
           <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>

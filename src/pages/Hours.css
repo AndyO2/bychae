@@ -1,5 +1,6 @@
 .hours {
   min-height: 100vh;
+  background: var(--background-primary);
 }
 
 .hours-header {
@@ -53,14 +54,15 @@
 
 /* Status Card */
 .status-card {
-  background: white;
-  border-radius: 0;
+  background: var(--background-light);
+  border-radius: 12px;
   padding: 2rem;
   margin: 3rem 0;
   display: flex;
   align-items: center;
   gap: 2rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  border: 1px solid var(--container-border);
 }
 
 .status-card.open {
@@ -76,13 +78,13 @@
 }
 
 .status-content h2 {
-  color: #2c3e50;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
 }
 
 .status-content p {
-  color: #7f8c8d;
+  color: var(--text-secondary);
   font-size: 1.1rem;
 }
 
@@ -97,16 +99,17 @@
 
 /* Hours Section */
 .hours-section {
-  background: white;
-  border-radius: 0;
+  background: var(--background-light);
+  border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--container-border);
 }
 
 .hours-section h2 {
-  color: #2c3e50;
+  color: var(--text-primary);
   margin-bottom: 2rem;
   font-size: 2rem;
   text-align: center;
@@ -129,7 +132,7 @@
 }
 
 .hours-row:hover {
-  background-color: #f8f9fa;
+  background-color: var(--background-secondary);
 }
 
 .hours-row.current-day {
@@ -155,10 +158,11 @@
 .day {
   font-weight: 600;
   font-size: 1.1rem;
+  color: var(--text-primary);
 }
 
 .time {
-  color: #7f8c8d;
+  color: var(--text-secondary);
 }
 
 .current-day .time {
@@ -168,20 +172,22 @@
 .status {
   font-weight: 600;
   font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
 /* Location Section */
 .location-section {
-  background: white;
-  border-radius: 0;
+  background: var(--background-light);
+  border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--container-border);
 }
 
 .location-section h2 {
-  color: #2c3e50;
+  color: var(--text-primary);
   margin-bottom: 2rem;
   font-size: 2rem;
   text-align: center;
@@ -196,56 +202,56 @@
 }
 
 .location-info h3 {
-  color: #2c3e50;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .location-info p {
-  color: #7f8c8d;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
 }
 
 .address-link {
-  color: #042209;
+  color: white;
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 600;
 }
 
 .address-link:hover {
-  color: #0a3d1a;
+  color: #f1f5f9;
   text-decoration: underline;
 }
 
 .phone-link {
-  color: #042209;
+  color: white;
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 600;
 }
 
 .phone-link:hover {
-  color: #0a3d1a;
+  color: #f1f5f9;
   text-decoration: underline;
 }
 
 .email-link {
-  color: #042209;
+  color: white;
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 600;
 }
 
 .email-link:hover {
-  color: #0a3d1a;
+  color: #f1f5f9;
   text-decoration: underline;
 }
 
 .location-map {
   background: #f8f9fa;
-  border-radius: 0;
+  border-radius: 12px;
   overflow: hidden;
   flex: 1;
   min-height: 0;
@@ -255,7 +261,7 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
 }
 
 .map-placeholder {
@@ -291,7 +297,7 @@
   background: var(--accent-color);
   color: white;
   padding: 0.8rem 1.5rem;
-  border-radius: 0;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -307,10 +313,11 @@
 /* Special Hours */
 .special-hours {
   background: white;
-  border-radius: 0;
+  border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--container-border);
 }
 
 .special-hours h2 {
@@ -323,7 +330,7 @@
 .special-notice {
   background: #fff3cd;
   border: 1px solid #ffeaa7;
-  border-radius: 0;
+  border-radius: 12px;
   padding: 1.5rem;
 }
 
@@ -342,10 +349,11 @@
 /* Contact Section */
 .contact-section {
   background: white;
-  border-radius: 15px;
+  border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--container-border);
 }
 
 .contact-section h2 {
