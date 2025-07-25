@@ -84,8 +84,8 @@ export const breakingBunsConfig: FoodCartConfig = {
   },
   
   socialMedia: {
-    instagram: "@breakingbunspdx",
-    facebook: "BreakingBunsPDX"
+    instagram: "@breaking_buns",
+    facebook: "Breaking-Buns-Food-Cart-100064707978866"
   },
   
   features: {

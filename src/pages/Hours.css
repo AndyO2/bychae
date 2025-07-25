@@ -54,7 +54,7 @@
 /* Status Card */
 .status-card {
   background: white;
-  border-radius: 15px;
+  border-radius: 0;
   padding: 2rem;
   margin: 3rem 0;
   display: flex;
@@ -98,7 +98,7 @@
 /* Hours Section */
 .hours-section {
   background: white;
-  border-radius: 15px;
+  border-radius: 0;
   padding: 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -173,7 +173,7 @@
 /* Location Section */
 .location-section {
   background: white;
-  border-radius: 15px;
+  border-radius: 0;
   padding: 2rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -192,6 +192,7 @@
   flex-direction: column;
   gap: 1.5rem;
   flex: 1;
+  min-height: 0;
 }
 
 .location-info h3 {
@@ -208,16 +209,17 @@
 
 .location-map {
   background: #f8f9fa;
-  border-radius: 10px;
+  border-radius: 0;
   overflow: hidden;
-  min-height: 300px;
+  flex: 1;
+  min-height: 0;
 }
 
 .location-map iframe {
   width: 100%;
-  height: 300px;
+  height: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 .map-placeholder {
@@ -253,7 +255,7 @@
   background: var(--accent-color);
   color: white;
   padding: 0.8rem 1.5rem;
-  border-radius: 25px;
+  border-radius: 0;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -269,7 +271,7 @@
 /* Special Hours */
 .special-hours {
   background: white;
-  border-radius: 15px;
+  border-radius: 0;
   padding: 2rem;
   margin: 2rem 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -285,7 +287,7 @@
 .special-notice {
   background: #fff3cd;
   border: 1px solid #ffeaa7;
-  border-radius: 10px;
+  border-radius: 0;
   padding: 1.5rem;
 }
 

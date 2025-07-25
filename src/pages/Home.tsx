@@ -43,7 +43,7 @@ const Home: React.FC = () => {
           <div className="catchphrase-content">
             <h2>WHERE TRADITION MEETS INNOVATION</h2>
             <p>Experience the perfect blend of authentic Asian flavors and modern culinary creativity. Every bao tells a story of passion, quality, and the art of breaking bread together.</p>
-            <Link to="/about" className="btn btn-primary">Learn More</Link>
+            <Link to="/about" className="btn btn-outline-green">Learn More</Link>
           </div>
         </div>
       </section>
