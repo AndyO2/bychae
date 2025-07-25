@@ -202,13 +202,13 @@ const Hours: React.FC = () => {
               </div>
               <div className="location-map">
                 {process.env.REACT_APP_GOOGLE_MAPS_API_KEY ? (
-                  <iframe 
+                  <iframe
                     title="Location Map"
-                    width="100%" 
-                    height="300" 
+                    width="600" 
+                    height="450" 
                     style={{ border: 0 }} 
                     loading="lazy" 
-                    allowFullScreen
+                    allowFullScreen 
                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
                   />
                 ) : (
