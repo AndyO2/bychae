@@ -318,7 +318,7 @@
   background: #e55a2b !important;
   border-color: #e55a2b !important;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .btn.btn-ubereats {
@@ -331,7 +331,7 @@
   background: #00a041 !important;
   border-color: #00a041 !important;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 200, 81, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile Responsive */

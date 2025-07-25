@@ -178,12 +178,12 @@
 .order-again-btn {
   background: linear-gradient(135deg, #ff6b6b, #ff8e53);
   color: white;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .order-again-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
