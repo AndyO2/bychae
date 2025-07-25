@@ -53,8 +53,8 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Force white header on menu, hours, and about pages
-  const forceWhiteHeader = ['/menu', '/hours', '/about'].some(path => location.pathname.startsWith(path));
+  // Force white header on menu, hours, catering, and about pages
+  const forceWhiteHeader = ['/menu', '/hours', '/catering', '/about'].some(path => location.pathname.startsWith(path));
   const headerClass = `header${isScrolled || forceWhiteHeader ? ' scrolled' : ''}`;
 
   return (

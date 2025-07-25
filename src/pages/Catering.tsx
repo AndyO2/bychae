@@ -13,6 +13,8 @@ interface CateringPackage {
 }
 
 const Catering: React.FC = () => {
+  const headerVideoUrl = "https://cdn.midjourney.com/video/31f89f36-f795-486f-9b4c-f30c340b1c99/3.mp4";
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,6 +84,16 @@ const Catering: React.FC = () => {
   return (
     <div className="catering">
       <div className="catering-header">
+        <video 
+          className="header-video"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src={headerVideoUrl} type="video/mp4" />
+        </video>
+        <div className="header-overlay" />
         <div className="container">
           <h1>Catering Services</h1>
           <p>Let us cater your next event with delicious food and professional service</p>

@@ -72,7 +72,40 @@ const Home: React.FC = () => {
           <p>Visit us today and experience the best food in town!</p>
           <div className="cta-buttons">
             <Link to="/menu" className="btn btn-primary">View Menu</Link>
-            <Link to="/hours" className="btn btn-outline">Check Hours</Link>
+            <Link to="/hours" className="btn btn-outline-green">Check Hours</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery Services Section */}
+      <section className="delivery-section">
+        <div className="delivery-content">
+          <div className="delivery-image">
+            <img src="/images/breaking-buns/cart.jpg" alt="Food Cart" />
+          </div>
+          <div className="delivery-text">
+            <h2>Order Online for Delivery</h2>
+            <p>Can't make it to our cart? No problem! Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
+            
+            <div className="delivery-services">
+              <div className="delivery-service">
+                <div className="delivery-logo">
+                  <img src="/images/breaking-buns/grubhub.png" alt="GrubHub" />
+                </div>
+                <a href="https://www.grubhub.com/restaurant/breaking-buns-5523-se-28th-ave-portland/2760956" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Order on GrubHub
+                </a>
+              </div>
+              
+              <div className="delivery-service">
+                <div className="delivery-logo">
+                  <img src="/images/breaking-buns/ubereats.png" alt="Uber Eats" />
+                </div>
+                <a href="https://www.ubereats.com/store/breaking-buns-pdx-southeast-portland/jWObStTAVfuDqkV1yQzSxQ?diningMode=PICKUP&surfaceName=" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Order on Uber Eats
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

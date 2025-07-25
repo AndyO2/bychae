@@ -89,6 +89,13 @@
   color: white;
 }
 
+.btn-outline-green {
+  background: transparent;
+  border: 2px solid #042209;
+  font-weight: 700;
+  color: #042209;
+}
+
 .btn-primary {
   background: #042209;
   color: white;
@@ -114,6 +121,12 @@
 }
 
 .btn-outline:hover {
+  background: #042209;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-outline-green:hover {
   background: #042209;
   color: white;
   transform: translateY(-3px);
@@ -227,6 +240,73 @@
   flex-wrap: wrap;
 }
 
+/* Delivery Services Section */
+.delivery-section {
+  padding: 4rem 0;
+  background: white;
+  width: 100%;
+}
+
+.delivery-content {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0;
+}
+
+.delivery-image {
+  width: 50%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.delivery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.delivery-text {
+  width: 50%;
+  padding: 3rem;
+  text-align: left;
+}
+
+.delivery-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.delivery-text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.delivery-services {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.delivery-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.delivery-logo img {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .hero-content {
@@ -263,5 +343,41 @@
   .catchphrase-content h2,
   .cta h2 {
     font-size: 2rem;
+  }
+
+  .delivery-content {
+    flex-direction: column;
+  }
+
+  .delivery-image,
+  .delivery-text {
+    width: 100%;
+  }
+
+  .delivery-image {
+    height: 250px;
+  }
+
+  .delivery-text {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .delivery-text h2 {
+    font-size: 2rem;
+  }
+
+  .delivery-services {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .delivery-service {
+    gap: 0.5rem;
+  }
+
+  .delivery-logo img {
+    height: 60px;
+    max-width: 150px;
   }
 } 
