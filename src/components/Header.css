@@ -225,6 +225,19 @@
   }
 
   .close-menu-button {
+  display: none;
+}
+
+  .close-menu-button:hover {
+    color: var(--accent-color);
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .close-menu-button {
+    display: flex;
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -238,17 +251,12 @@
     transition: color 0.3s ease;
     width: 40px;
     height: 40px;
-    display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .close-menu-button:hover {
     color: var(--accent-color);
-  }
-
-  .mobile-menu-button {
-    display: block;
   }
   
   .nav.nav-open {
