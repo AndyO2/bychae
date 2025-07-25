@@ -214,38 +214,38 @@
 }
 
 .address-link {
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 600;
 }
 
 .address-link:hover {
-  color: #f1f5f9;
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
 .phone-link {
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 600;
 }
 
 .phone-link:hover {
-  color: #f1f5f9;
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
 .email-link {
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 600;
 }
 
 .email-link:hover {
-  color: #f1f5f9;
+  color: var(--accent-color);
   text-decoration: underline;
 }
 

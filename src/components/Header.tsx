@@ -87,13 +87,22 @@ const Header: React.FC = () => {
           </div>
         </button>
 
-        <button className="mobile-menu-button" onClick={toggleMobileMenu}>
-          <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
+        <div className="mobile-controls">
+          <button className="mobile-theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
+            <div className="toggle-track">
+              <div className={`toggle-thumb ${theme === 'dark' ? 'dark' : 'light'}`}>
+                {theme === 'light' ? '🌙' : '☀️'}
+              </div>
+            </div>
+          </button>
+          <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+            <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
       </div>
     </header>
   );
