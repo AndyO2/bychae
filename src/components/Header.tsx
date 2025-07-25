@@ -6,6 +6,7 @@ import './Header.css';
 const Header: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   const isActive = (path: string) => {
@@ -40,8 +41,20 @@ const Header: React.FC = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // Handle scroll to change header background
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight; // 100vh
+      setIsScrolled(scrollPosition > heroHeight - 100); // Change 100px before reaching bottom of hero
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="header" ref={headerRef}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`} ref={headerRef}>
       <div className="header-content">
         <Link to="/" className="logo" onClick={closeMobileMenu}>
           <span className="logo-emoji">{currentConfig.logo}</span>
