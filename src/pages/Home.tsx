@@ -84,8 +84,8 @@ const Home: React.FC = () => {
             <img src="/images/breaking-buns/cart.jpg" alt="Food Cart" />
           </div>
           <div className="delivery-text">
-            <h2>Order Online for Delivery</h2>
-            <p>Can't make it to our cart? No problem! Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
+            <h2>Can't make it to our cart?</h2>
+            <p>No problem! Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
             
             <div className="delivery-services">
               <div className="delivery-service">
