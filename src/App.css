@@ -24,48 +24,6 @@ main {
   flex: 1;
 }
 
-/* Global button styles */
-.btn {
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-align: center;
-  border: 2px solid transparent;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-  color: white;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #ff6b6b;
-  border-color: #ff6b6b;
-}
-
-.btn-secondary:hover {
-  background: #ff6b6b;
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* Global container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
   .container {

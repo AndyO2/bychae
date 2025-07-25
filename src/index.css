@@ -85,10 +85,6 @@ a {
   transition: color 0.3s ease;
 }
 
-a:hover {
-  color: var(--primary-color);
-}
-
 /* Container */
 .container {
   max-width: 1200px;
