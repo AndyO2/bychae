@@ -84,8 +84,9 @@
 
 .btn-outline {
   background: transparent;
-  border: 2px solid black;
+  border: 2px solid white;
   font-weight: 700;
+  color: white;
 }
 
 .btn-primary {
