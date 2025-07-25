@@ -4,21 +4,22 @@ import { currentConfig } from '../config/foodCartConfig';
 import './Home.css';
 
 const Home: React.FC = () => {
-  const heroStyle = currentConfig.assets.heroImage
-    ? {
-        backgroundImage: `url(${currentConfig.assets.heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative' as const,
-      }
-    : {};
+  const videoUrl = "https://cdn.midjourney.com/video/798305d9-b816-4df6-a706-98437cef9cee/1.mp4";
 
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero" style={heroStyle}>
-        {currentConfig.assets.heroImage && <div className="hero-overlay" />}
+      <section className="hero">
+        <video 
+          className="hero-video"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src={videoUrl} type="video/mp4" />
+        </video>
+        <div className="hero-overlay" />
         <div className="hero-content">
           <h1>{currentConfig.tagline}</h1>
           <p>{currentConfig.description}</p>
