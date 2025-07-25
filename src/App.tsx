@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import './App.css';
 import Header from './components/Header';
@@ -13,6 +12,7 @@ import Catering from './pages/Catering';
 import About from './pages/About';
 import Checkout from './pages/Checkout';
 import OrderConfirmation from './pages/OrderConfirmation';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
       <CartProvider>
         <Router>
           <div className="App">
+            <Analytics />
             <Header />
             <main>
               <Routes>

@@ -10,6 +10,7 @@ interface DayHours {
 }
 
 const Hours: React.FC = () => {
+  const headerImageUrl = "https://cdn.midjourney.com/video/31f89f36-f795-486f-9b4c-f30c340b1c99/3.mp4";
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
   const currentTime = new Date().toLocaleTimeString('en-US', { 
     hour: '2-digit', 
@@ -138,6 +139,16 @@ const Hours: React.FC = () => {
   return (
     <div className="hours">
       <div className="hours-header">
+        <video 
+          className="header-video"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src={headerImageUrl} type="video/mp4" />
+        </video>
+        <div className="header-overlay" />
         <div className="container">
           <h1>Hours & Location</h1>
           <p>Find us and know when we're serving delicious food</p>
