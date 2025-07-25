@@ -53,10 +53,10 @@ const Home: React.FC = () => {
         <div className="container">
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img src="/images/breaking-buns/bao/bao-short-rib.jpg" alt="Short Rib Bao" />
+              <img src="/images/breaking-buns/guabao.jpg" alt="Guabao" />
             </div>
             <div className="gallery-item">
-              <img src="/images/breaking-buns/guabao.jpg" alt="Guabao" />
+              <img src="/images/breaking-buns/yakisoba/chicken-yakisoba.jpg" alt="Chicken Yakisoba" />
             </div>
             <div className="gallery-item">
               <img src="/images/breaking-buns/fried-rice/pork-belly.jpg" alt="Pork Belly Fried Rice" />
@@ -68,8 +68,8 @@ const Home: React.FC = () => {
       {/* Call to Action */}
       <section className="cta">
         <div className="container">
-          <h2>Ready to Taste {currentConfig.tagline}?</h2>
-          <p>Visit us today and experience the best food in town!</p>
+          <h2>READY TO TASTE {currentConfig.tagline.toUpperCase()}?</h2>
+          <p>Visit us today and experience the best baos in town!</p>
           <div className="cta-buttons">
             <Link to="/menu" className="btn btn-primary">View Menu</Link>
             <Link to="/hours" className="btn btn-outline-green">Check Hours</Link>
