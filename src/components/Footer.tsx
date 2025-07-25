@@ -8,6 +8,20 @@ const Footer: React.FC = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p>&copy; 2025 {currentConfig.name}. All rights reserved.</p>
+          <div className="contact-links">
+            <a 
+              href={`tel:${currentConfig.phone.replace(/\s+/g, '')}`}
+              className="contact-link"
+            >
+              📞 {currentConfig.phone}
+            </a>
+            <a 
+              href={`mailto:${currentConfig.email}`}
+              className="contact-link"
+            >
+              ✉️ {currentConfig.email}
+            </a>
+          </div>
           <div className="social-links">
             {currentConfig.socialMedia?.instagram && (
               <a 

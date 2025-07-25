@@ -207,6 +207,42 @@
   font-size: 1.1rem;
 }
 
+.address-link {
+  color: #042209;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.address-link:hover {
+  color: #0a3d1a;
+  text-decoration: underline;
+}
+
+.phone-link {
+  color: #042209;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.phone-link:hover {
+  color: #0a3d1a;
+  text-decoration: underline;
+}
+
+.email-link {
+  color: #042209;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.email-link:hover {
+  color: #0a3d1a;
+  text-decoration: underline;
+}
+
 .location-map {
   background: #f8f9fa;
   border-radius: 0;

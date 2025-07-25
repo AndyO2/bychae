@@ -5,6 +5,7 @@
   position: relative;
   bottom: 0;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .footer-container {
@@ -109,6 +110,26 @@
   flex-shrink: 0;
 }
 
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.contact-link {
+  color: #222;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.contact-link:hover {
+  color: #042209;
+  text-decoration: underline;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .footer-container {
@@ -120,6 +141,7 @@
   .footer {
     padding: 2rem 0 1rem;
     margin-top: 2rem;
+    position: relative;
   }
 
   .footer-bottom-content {

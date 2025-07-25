@@ -196,9 +196,32 @@ const Hours: React.FC = () => {
             <h2>WHERE TO FIND US</h2>
             <div className="location-card">
               <div className="location-info">
-                <p>📍 {currentConfig.address}</p>
-                <p>📞 {currentConfig.phone}</p>
-                <p>✉️ {currentConfig.email}</p>
+                <p>
+                  📍 <a 
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentConfig.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="address-link"
+                  >
+                    {currentConfig.address}
+                  </a>
+                </p>
+                <p>
+                  📞 <a 
+                    href={`tel:${currentConfig.phone.replace(/\s+/g, '')}`}
+                    className="phone-link"
+                  >
+                    {currentConfig.phone}
+                  </a>
+                </p>
+                <p>
+                  ✉️ <a 
+                    href={`mailto:${currentConfig.email}`}
+                    className="email-link"
+                  >
+                    {currentConfig.email}
+                  </a>
+                </p>
               </div>
               <div className="location-map">
                 {process.env.REACT_APP_GOOGLE_MAPS_API_KEY ? (
