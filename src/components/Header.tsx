@@ -46,15 +46,19 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const heroHeight = window.innerHeight; // 100vh
-      setIsScrolled(scrollPosition > heroHeight - 100); // Change 100px before reaching bottom of hero
+      setIsScrolled(scrollPosition > heroHeight - 100);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Force white header on menu, hours, and about pages
+  const forceWhiteHeader = ['/menu', '/hours', '/about'].some(path => location.pathname.startsWith(path));
+  const headerClass = `header${isScrolled || forceWhiteHeader ? ' scrolled' : ''}`;
+
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`} ref={headerRef}>
+    <header className={headerClass} ref={headerRef}>
       <div className="header-content">
         <Link to="/" className="logo" onClick={closeMobileMenu}>
           <span className="logo-emoji">{currentConfig.logo}</span>
