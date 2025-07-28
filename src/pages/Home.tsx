@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { currentConfig } from '../config/foodCartConfig';
+import ImageCarousel from '../components/ImageCarousel';
+import HeroVideo from '../components/HeroVideo';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -9,24 +11,17 @@ const Home: React.FC = () => {
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero">
-        <video 
-          className="hero-video"
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-        >
-          <source src={videoUrl} type="video/mp4" />
-        </video>
-        <div className="hero-overlay" />
+      <HeroVideo 
+        videoUrl={videoUrl}
+        fallbackImage="/images/breaking-buns/guabao.jpg"
+      >
         <div className="hero-content">
           <h1>{currentConfig.tagline}</h1>
           <p>{currentConfig.description}</p>
           <div className="hero-buttons">
-            <Link to="/menu" className="btn btn-primary">View Menu</Link>
+            <Link to="/menu" className="btn btn-primary">Menu</Link>
             <div className="hero-button">
-              <Link to="/hours" className="btn btn-outline">Hours</Link>
+              <Link to="/hours" className="btn btn-primary">Hours</Link>
             </div>
           </div>
         </div>
@@ -35,22 +30,43 @@ const Home: React.FC = () => {
             <div className="food-cart-illustration">{currentConfig.logo}</div>
           </div>
         )}
-      </section>
+      </HeroVideo>
 
       {/* Catchphrase Section */}
       <section className="catchphrase">
         <div className="container">
           <div className="catchphrase-content">
             <h2>WHERE TRADITION MEETS INNOVATION</h2>
-            <p>Experience the perfect blend of authentic Asian flavors and modern culinary creativity. Every bao tells a story of passion, quality, and the art of breaking bread together.</p>
+            <p>Experience the perfect blend of authentic Asian flavors and modern culinary creativity.</p>
             <Link to="/about" className="btn btn-outline-green">Learn More</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Hours Section */}
+      <section className="hours-section">
+        <div className="container">
+          <div className="hours-content">
+            <h2>HOURS</h2>
+            <div className="hours-grid">
+              {Object.entries(currentConfig.hours).map(([day, time]) => (
+                <div key={day} className="hours-item">
+                  <span className="day">{day}</span>
+                  <span className="time">{time}</span>
+                </div>
+              ))}
+            </div>
+            <div className="hours-cta">
+              <Link to="/hours" className="btn btn-outline">View Full Hours</Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Image Gallery */}
       <section className="image-gallery">
-        <div className="container">
+        {/* Desktop Grid */}
+        <div className="gallery-desktop">
           <div className="gallery-grid">
             <div className="gallery-item">
               <img src="/images/breaking-buns/guabao.jpg" alt="Guabao" />
@@ -62,6 +78,28 @@ const Home: React.FC = () => {
               <img src="/images/breaking-buns/fried-rice/pork-belly.jpg" alt="Pork Belly Fried Rice" />
             </div>
           </div>
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="gallery-mobile">
+          <ImageCarousel 
+            images={[
+              {
+                src: "/images/breaking-buns/guabao.jpg",
+                alt: "Guabao"
+              },
+              {
+                src: "/images/breaking-buns/yakisoba/chicken-yakisoba.jpg",
+                alt: "Chicken Yakisoba"
+              },
+              {
+                src: "/images/breaking-buns/fried-rice/pork-belly.jpg",
+                alt: "Pork Belly Fried Rice"
+              }
+            ]}
+            autoPlay={true}
+            autoPlayInterval={5000}
+          />
         </div>
       </section>
 

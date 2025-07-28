@@ -80,14 +80,7 @@ const Header: React.FC = () => {
           <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`} onClick={closeMobileMenu}>ABOUT</Link>
         </nav>
 
-        <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
-          {theme === 'light' ? <Moon /> : <Sun />}
-        </button>
-
         <div className="mobile-controls">
-          <button className="mobile-theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
-            {theme === 'light' ? <Moon /> : <Sun />}
-          </button>
           <button className="mobile-menu-button" onClick={toggleMobileMenu}>
             <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
               <span></span>
