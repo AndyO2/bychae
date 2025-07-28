@@ -159,6 +159,7 @@
   max-width: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .catchphrase-content {
@@ -355,12 +356,32 @@
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .gallery-item {
+    flex: 0 0 100vw;
+    scroll-snap-align: start;
+    width: 100vw;
   }
   
   .gallery-item img {
-    height: 250px;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  /* Hide scrollbar for cleaner look */
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gallery-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .container {

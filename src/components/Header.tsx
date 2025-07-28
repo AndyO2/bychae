@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router';
+import { Sun, Moon } from 'lucide-react';
 import { currentConfig } from '../config/foodCartConfig';
 import { useTheme } from '../context/ThemeContext';
 import './Header.css';
@@ -80,20 +81,12 @@ const Header: React.FC = () => {
         </nav>
 
         <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
-          <div className="toggle-track">
-            <div className={`toggle-thumb ${theme === 'dark' ? 'dark' : 'light'}`}>
-              {theme === 'light' ? '🌙' : '☀️'}
-            </div>
-          </div>
+          {theme === 'light' ? <Moon /> : <Sun />}
         </button>
 
         <div className="mobile-controls">
           <button className="mobile-theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
-            <div className="toggle-track">
-              <div className={`toggle-thumb ${theme === 'dark' ? 'dark' : 'light'}`}>
-                {theme === 'light' ? '🌙' : '☀️'}
-              </div>
-            </div>
+            {theme === 'light' ? <Moon /> : <Sun />}
           </button>
           <button className="mobile-menu-button" onClick={toggleMobileMenu}>
             <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
