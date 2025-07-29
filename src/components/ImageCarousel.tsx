@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './ImageCarousel.css';
 
@@ -22,11 +22,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => 
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [images.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => 
@@ -84,7 +84,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         clearInterval(autoPlayRef.current);
       }
     };
-  }, [isAutoPlaying, autoPlay, autoPlayInterval, images.length]);
+  }, [isAutoPlaying, autoPlay, autoPlayInterval, images.length, nextSlide]);
 
   // Pause auto-play on visibility change
   useEffect(() => {

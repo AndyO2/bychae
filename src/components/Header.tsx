@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router';
-import { Sun, Moon } from 'lucide-react';
 import { currentConfig } from '../config/foodCartConfig';
-import { useTheme } from '../context/ThemeContext';
 import './Header.css';
 
 const Header: React.FC = () => {
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);

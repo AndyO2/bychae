@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import { currentConfig } from '../config/foodCartConfig';
 import ImageCarousel from '../components/ImageCarousel';
@@ -39,26 +39,6 @@ const Home: React.FC = () => {
             <h2>WHERE TRADITION MEETS INNOVATION</h2>
             <p>Experience the perfect blend of authentic Asian flavors and modern culinary creativity.</p>
             <Link to="/about" className="btn btn-outline-green">Learn More</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Hours Section */}
-      <section className="hours-section">
-        <div className="container">
-          <div className="hours-content">
-            <h2>HOURS</h2>
-            <div className="hours-grid">
-              {Object.entries(currentConfig.hours).map(([day, time]) => (
-                <div key={day} className="hours-item">
-                  <span className="day">{day}</span>
-                  <span className="time">{time}</span>
-                </div>
-              ))}
-            </div>
-            <div className="hours-cta">
-              <Link to="/hours" className="btn btn-outline">View Full Hours</Link>
-            </div>
           </div>
         </div>
       </section>
