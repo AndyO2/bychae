@@ -1,5 +1,4 @@
 :root {
-  /* Light theme variables */
   --background-primary: #ffffff;
   --background-secondary: #f8f9fa;
   --background-light: #ffffff;
@@ -13,24 +12,6 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.2);
   --primary-light: #0a3d1a;
-}
-
-[data-theme="dark"] {
-  /* Dark theme variables */
-  --background-primary: #2a2a2a;
-  --background-secondary: #3a3a3a;
-  --background-light: #4a4a4a;
-  --text-primary: #ffffff;
-  --text-secondary: #e2e8f0;
-  --text-light: #94a3b8;
-  --accent-color: #ffffff;
-  --accent-light: #f1f5f9;
-  --accent-outline: #ffffff;
-  --border-color: #505050;
-  --container-border: #404040;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-dark: rgba(0, 0, 0, 0.5);
-  --primary-light: #f1f5f9;
 }
 
 html {

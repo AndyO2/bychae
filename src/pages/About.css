@@ -326,18 +326,6 @@
   box-shadow: 0 10px 25px rgba(4, 34, 9, 0.3);
 }
 
-.btn-secondary {
-  background: transparent;
-  color: #042209;
-  border-color: #042209;
-}
-
-.btn-secondary:hover {
-  background: #042209;
-  color: white;
-  transform: translateY(-3px);
-}
-
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .about-header h1 {

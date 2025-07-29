@@ -150,36 +150,4 @@
   }
 }
 
-/* Dark mode adjustments */
-[data-theme="dark"] .carousel-nav {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
-}
-
-[data-theme="dark"] .carousel-nav:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-[data-theme="dark"] .carousel-dot {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-[data-theme="dark"] .carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-[data-theme="dark"] .carousel-dot.active {
-  background: white;
-  border-color: white;
-}
-
-[data-theme="dark"] .carousel-counter {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
-}
-
-/* Smooth transitions for theme changes */
-.image-carousel * {
-  transition: background-color 0.3s ease, color 0.3s ease;
-} 
+ 

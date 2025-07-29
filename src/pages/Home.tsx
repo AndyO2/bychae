@@ -19,10 +19,8 @@ const Home: React.FC = () => {
           <h1>{currentConfig.tagline}</h1>
           <p>{currentConfig.description}</p>
           <div className="hero-buttons">
-            <Link to="/menu" className="btn btn-primary">Menu</Link>
-            <div className="hero-button">
-              <Link to="/hours" className="btn btn-primary">Hours</Link>
-            </div>
+            <Link to="/menu" className="btn btn-primary">VIEW MENU</Link>
+            <Link to="/hours" className="btn btn-outline-green">CHECK HOURS</Link>
           </div>
         </div>
         {!currentConfig.assets.heroImage && (
@@ -38,7 +36,7 @@ const Home: React.FC = () => {
           <div className="catchphrase-content">
             <h2>WHERE TRADITION MEETS INNOVATION</h2>
             <p>Experience the perfect blend of authentic Asian flavors and modern culinary creativity.</p>
-            <Link to="/about" className="btn btn-outline-green">Learn More</Link>
+            <Link to="/about" className="btn btn-outline-green">LEARN MORE</Link>
           </div>
         </div>
       </section>
@@ -89,8 +87,8 @@ const Home: React.FC = () => {
           <h2>READY TO TASTE {currentConfig.tagline.toUpperCase()}?</h2>
           <p>Visit us today and experience the best baos in town!</p>
           <div className="cta-buttons">
-            <Link to="/menu" className="btn btn-primary">View Menu</Link>
-            <Link to="/hours" className="btn btn-outline-green">Check Hours</Link>
+            <Link to="/menu" className="btn btn-primary">VIEW MENU</Link>
+            <Link to="/hours" className="btn btn-outline-green">CHECK HOURS</Link>
           </div>
         </div>
       </section>
@@ -102,8 +100,8 @@ const Home: React.FC = () => {
             <img src="/images/breaking-buns/cart.jpg" alt="Food Cart" />
           </div>
           <div className="delivery-text">
-            <h2>Can't make it to our cart?</h2>
-            <p>No problem! Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
+            <h2>CAN'T MAKE IT TO OUR CART?</h2>
+            <p>Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
             
             <div className="delivery-services">
               <div className="delivery-service">
@@ -111,7 +109,7 @@ const Home: React.FC = () => {
                   <img src="/images/breaking-buns/grubhub.png" alt="GrubHub" />
                 </div>
                 <a href="https://www.grubhub.com/restaurant/breaking-buns-5523-se-28th-ave-portland/2760956" target="_blank" rel="noopener noreferrer" className="btn btn-grubhub">
-                  Order on GrubHub
+                  ORDER ON GRUBHUB
                 </a>
               </div>
               
@@ -120,7 +118,7 @@ const Home: React.FC = () => {
                   <img src="/images/breaking-buns/ubereats.png" alt="Uber Eats" />
                 </div>
                 <a href="https://www.ubereats.com/store/breaking-buns-pdx-southeast-portland/jWObStTAVfuDqkV1yQzSxQ?diningMode=PICKUP&surfaceName=" target="_blank" rel="noopener noreferrer" className="btn btn-ubereats">
-                  Order on Uber Eats
+                  ORDER ON UBER EATS
                 </a>
               </div>
             </div>
