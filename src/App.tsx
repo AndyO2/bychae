@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import CartSidebar from './components/CartSidebar';
 import { CartProvider } from './context/CartContext';
 import { OrderProvider } from './context/OrderContext';
+import { useScrollToTop } from './hooks/useScrollToTop';
 
 import Home from './pages/Home';
 import Menu from './pages/Menu';
@@ -20,26 +21,34 @@ function App() {
     <OrderProvider>
       <CartProvider>
         <Router>
-          <div className="App">
-            <Analytics />
-            <Header />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/menu" element={<Menu />} />
-                <Route path="/hours" element={<Hours />} />
-                <Route path="/catering" element={<Catering />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/order-confirmation" element={<OrderConfirmation />} />
-              </Routes>
-            </main>
-            <Footer />
-            <CartSidebar />
-          </div>
+          <AppContent />
         </Router>
       </CartProvider>
     </OrderProvider>
+  );
+}
+
+function AppContent() {
+  useScrollToTop();
+  
+  return (
+    <div className="App">
+      <Analytics />
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/hours" element={<Hours />} />
+          <Route path="/catering" element={<Catering />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        </Routes>
+      </main>
+      <Footer />
+      <CartSidebar />
+    </div>
   );
 }
 
