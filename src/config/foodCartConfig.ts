@@ -59,7 +59,7 @@ export interface FoodCartConfig {
 // Default configuration for Breaking Buns PDX
 export const breakingBunsConfig: FoodCartConfig = {
   name: "BREAKING BUNS",
-  tagline: "CASUAL ASIAN FUSION",
+  tagline: "AUTHENTIC ASIAN FUSION",
   description: "Fresh, flavorful Gua Bao (steamed buns) and noodles made with love. Breaking Buns brings authentic Asian street food to Portland.",
   
   phone: "(503) 728-8207",
