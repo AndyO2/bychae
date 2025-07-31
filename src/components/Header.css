@@ -303,7 +303,7 @@
     width: 100%;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
-    color: white;
+    color: var(--text-primary);
     box-sizing: border-box;
     font-size: 1.2rem;
     font-weight: 500;
@@ -314,11 +314,11 @@
   }
 
   .nav-link:hover {
-    color: inherit;
+    color: var(--accent-color);
   }
 
   .nav-link.active {
-    color: white;
+    color: var(--accent-color);
     font-weight: 600;
   }
 
