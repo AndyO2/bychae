@@ -4,7 +4,7 @@
 }
 
 .hours-header {
-  background: linear-gradient(135deg, #042209, #0a3d1a);
+  background: linear-gradient(135deg, #005904, #005904);
   color: white;
   padding: 4rem 0;
   text-align: center;
@@ -136,7 +136,7 @@
 }
 
 .hours-row.current-day {
-  background: linear-gradient(135deg, #042209, #0a3d1a);
+  background: linear-gradient(135deg, #005904, #005904);
   color: white;
 }
 

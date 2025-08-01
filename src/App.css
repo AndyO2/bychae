@@ -5,13 +5,13 @@
   --text-primary: #333333;
   --text-secondary: #666666;
   --text-light: #999999;
-  --accent-color: #042209;
-  --accent-light: #0a3d1a;
+  --accent-color: #005904;
+  --accent-light: #005904;
   --border-color: #e0e0e0;
   --container-border: #d1d5db;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.2);
-  --primary-light: #0a3d1a;
+  --primary-light: #005904;
 }
 
 html {

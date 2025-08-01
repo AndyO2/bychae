@@ -2,18 +2,16 @@ import React from 'react';
 import { Link } from 'react-router';
 import { currentConfig } from '../config/foodCartConfig';
 import ImageCarousel from '../components/ImageCarousel';
-import HeroVideo from '../components/HeroVideo';
+import HeroImage from '../components/HeroVideo';
 import './Home.css';
 
 const Home: React.FC = () => {
-  const videoUrl = "https://cdn.midjourney.com/video/798305d9-b816-4df6-a706-98437cef9cee/1.mp4";
-
   return (
     <div className="home">
       {/* Hero Section */}
-      <HeroVideo 
-        videoUrl={videoUrl}
-        fallbackImage="/images/breaking-buns/guabao.jpg"
+      <HeroImage 
+        fallbackImage="/images/matcha-background.png"
+        mobileFallbackImage="/images/matcha-mobile.png"
       >
         <div className="hero-content">
           <h1>{currentConfig.tagline}</h1>
@@ -28,7 +26,7 @@ const Home: React.FC = () => {
             <div className="food-cart-illustration">{currentConfig.logo}</div>
           </div>
         )}
-      </HeroVideo>
+      </HeroImage>
 
       {/* Catchphrase Section */}
       <section className="catchphrase">
@@ -47,13 +45,13 @@ const Home: React.FC = () => {
         <div className="gallery-desktop">
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img src="/images/breaking-buns/guabao.jpg" alt="Guabao" />
+              <img src="/images/gallery1.png" alt="Gallery 1" />
             </div>
             <div className="gallery-item">
-              <img src="/images/breaking-buns/yakisoba/chicken-yakisoba.jpg" alt="Chicken Yakisoba" />
+              <img src="/images/gallery2.png" alt="Gallery 2" /> 
             </div>
             <div className="gallery-item">
-              <img src="/images/breaking-buns/fried-rice/pork-belly.jpg" alt="Pork Belly Fried Rice" />
+              <img src="/images/gallery3.png" alt="Gallery 3" />
             </div>
           </div>
         </div>
@@ -63,16 +61,16 @@ const Home: React.FC = () => {
           <ImageCarousel 
             images={[
               {
-                src: "/images/breaking-buns/guabao.jpg",
-                alt: "Guabao"
+                src: "/images/gallery1.png",
+                alt: "Gallery Image 1"
               },
               {
-                src: "/images/breaking-buns/yakisoba/chicken-yakisoba.jpg",
-                alt: "Chicken Yakisoba"
+                src: "/images/gallery2.png",
+                alt: "Gallery Image 2"
               },
               {
-                src: "/images/breaking-buns/fried-rice/pork-belly.jpg",
-                alt: "Pork Belly Fried Rice"
+                src: "/images/gallery3.png",
+                alt: "Gallery Image 3"
               }
             ]}
             autoPlay={true}
@@ -97,7 +95,7 @@ const Home: React.FC = () => {
       <section className="delivery-section">
         <div className="delivery-content">
           <div className="delivery-image">
-            <img src="/images/breaking-buns/cart.jpg" alt="Food Cart" />
+            <img src="/images/truck.png" alt="Truck" />
           </div>
           <div className="delivery-text">
             <h2>CAN'T MAKE IT TO OUR CART?</h2>
@@ -106,7 +104,7 @@ const Home: React.FC = () => {
             <div className="delivery-services">
               <div className="delivery-service">
                 <div className="delivery-logo">
-                  <img src="/images/breaking-buns/grubhub.png" alt="GrubHub" />
+                  <img src="/images/truck.png" alt="Truck" />
                 </div>
                 <a href="https://www.grubhub.com/restaurant/breaking-buns-5523-se-28th-ave-portland/2760956" target="_blank" rel="noopener noreferrer" className="btn btn-grubhub">
                   ORDER ON GRUBHUB

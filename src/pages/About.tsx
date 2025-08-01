@@ -10,17 +10,24 @@ const About: React.FC = () => {
           <div className="story-content">
             <h2>ABOUT US</h2>
             <p>
-              Breaking Buns was born from a passion for authentic Asian street food and a commitment to culinary excellence. Founded in March 2021, we set out to bring the vibrant flavors of traditional steamed buns, savory yakisoba noodles, and perfectly seasoned fried rice to the heart of Portland.
+              Hi, my name is David Chae, and I'm the 20-year-old founder of by Chae.
             </p>
             <p>
-              We believe that exceptional food starts with exceptional ingredients. That's why we partner exclusively with premium local suppliers like St. Helen's Ranch for our meats and S&D Produce for the freshest vegetables. Every ingredient tells a story of quality, sustainability, and community.
+              What started from my love for food and sharing that love with others has now become something real.
             </p>
             <p>
-              From our humble food cart beginnings, we've grown into a beloved local destination where tradition meets innovation. Each dish we serve is crafted with care, combining time-honored techniques with modern culinary creativity to deliver an unforgettable dining experience.
+              Despite still being in college, I took a bet on myself this summer — and I'm beyond grateful for each and every comment, DM, and all the overwhelming support.
+            </p>
+            <p>
+              This is just the beginning — we're building the biggest matcha brand in the world, together.
+            </p>
+            <p>
+              With love 🫶,<br />
+              by Chae
             </p>
           </div>
           <div className="story-image">
-            <img src="/images/breaking-buns/cart.jpg" alt="Breaking Buns Food Cart" className="story-image-img" />
+            <img src="/images/aboutus.png" alt="About Us" className="story-image-img" />
           </div>
         </div>
       </div>

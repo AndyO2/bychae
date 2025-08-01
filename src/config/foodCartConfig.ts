@@ -57,10 +57,10 @@ export interface FoodCartConfig {
 }
 
 // Default configuration for Breaking Buns PDX
-export const breakingBunsConfig: FoodCartConfig = {
-  name: "BREAKING BUNS",
-  tagline: "AUTHENTIC ASIAN FUSION",
-  description: "Fresh, flavorful Gua Bao (steamed buns) and noodles made with love. Breaking Buns brings authentic Asian street food to Portland.",
+export const byChaeConfig: FoodCartConfig = {
+  name: "By:CHAE",
+  tagline: "BY CHAE, FOR YOU.",
+  description: "Handcrafted matcha treats made with premium Japanese green tea. Every sip and bite is a moment of pure joy.",
   
   phone: "(503) 728-8207",
   email: "breakingbunspdx@gmail.com",
@@ -78,8 +78,8 @@ export const breakingBunsConfig: FoodCartConfig = {
   secondaryColor: "#f5f5f5",
   
   assets: {
-    heroImage: "/images/breaking-buns/breaking-buns-food-cart.jpg",
-    logoImage: "/images/breaking-buns-logo.png",
+    heroImage: "/images/1.png",
+    logoImage: "/images/1.png",
     backgroundImage: "/images/bao-background.jpg"
   },
   
@@ -242,4 +242,4 @@ export const pizzaTruckConfig: FoodCartConfig = {
 };
 
 // Configuration selector - change this to switch between food carts
-export const currentConfig: FoodCartConfig = breakingBunsConfig; 
+export const currentConfig: FoodCartConfig = byChaeConfig; 

@@ -22,13 +22,13 @@
 
 .btn-outline-green {
   background: transparent;
-  border: 2px solid #0e751f;
-  color: #0e751f;
+  border: 2px solid #005904;
+  color: #005904;
   font-weight: 700;
 }
 
 .btn-primary {
-  background: #0e751f;
+  background: #005904;
   color: white;
   font-weight: 700;
 }
@@ -39,7 +39,7 @@
 }
 
 .btn-outline:hover {
-  background: #042209;
+  background: #005904;
   color: white;
   transform: translateY(-3px);
 }
@@ -228,7 +228,7 @@
 
 /* Delivery Services Section */
 .delivery-section {
-  padding: 0 0 4rem 0;
+  padding: 2rem 8rem;
   background: var(--background-primary);
   width: 100%;
 }
@@ -276,7 +276,6 @@
 .delivery-services {
   display: flex;
   gap: 3rem;
-  margin-bottom: 2rem;
   justify-content: center;
   align-items: flex-start;
 }
@@ -308,13 +307,13 @@
 }
 
 .btn.btn-ubereats {
-  background: #00c851 !important;
+  background: #005904 !important;
   color: white !important;
-  border: 2px solid #00c851 !important;
+  border: 2px solid #005904 !important;
 }
 
 .btn.btn-ubereats:hover {
-  border-color: #00a041 !important;
+  border-color: #005904 !important;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }

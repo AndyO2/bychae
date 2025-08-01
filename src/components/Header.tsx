@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router';
-import { currentConfig } from '../config/foodCartConfig';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -61,8 +60,7 @@ const Header: React.FC = () => {
     <header className={headerClass} ref={headerRef}>
       <div className="header-content">
         <Link to="/" className="logo" onClick={closeMobileMenu}>
-          <img src="/images/breaking-buns/breaking-buns-logo.jpg" alt="Breaking Buns Logo" className="logo-image" />
-          <span>{currentConfig.name}</span>
+          <img src="/images/bychae-black.png" alt="By Chae Logo" className="logo-image" />
         </Link>
 
         {isMobileMenuOpen && (
@@ -71,7 +69,6 @@ const Header: React.FC = () => {
           </button>
         )}
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
-          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={closeMobileMenu}>HOME</Link>
           <Link to="/menu" className={`nav-link ${isActive('/menu') ? 'active' : ''}`} onClick={closeMobileMenu}>MENU</Link>
           <Link to="/hours" className={`nav-link ${isActive('/hours') ? 'active' : ''}`} onClick={closeMobileMenu}>HOURS</Link>
           <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`} onClick={closeMobileMenu}>ABOUT</Link>
