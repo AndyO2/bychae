@@ -4,31 +4,34 @@ import './About.css';
 const About: React.FC = () => {
   return (
     <div className="about">
-      <div className="container">
-        {/* Our Story */}
-        <div className="story-section">
-          <div className="story-content">
-            <h2>ABOUT US</h2>
-            <p>
-              Hi, my name is David Chae, and I'm the 20-year-old founder of by Chae.
-            </p>
-            <p>
-              What started from my love for food and sharing that love with others has now become something real.
-            </p>
-            <p>
-              Despite still being in college, I took a bet on myself this summer — and I'm beyond grateful for each and every comment, DM, and all the overwhelming support.
-            </p>
-            <p>
-              This is just the beginning — we're building the biggest matcha brand in the world, together.
-            </p>
-            <p>
-              With love 🫶,<br />
-              by Chae
-            </p>
-          </div>
-          <div className="story-image">
-            <img src="/images/aboutus.png" alt="About Us" className="story-image-img" />
-          </div>
+      <div className="story-content">
+        <div className="story-content-title">ABOUT US</div>
+      </div>
+      <div className="story-content">
+        <div className="story-content-text">
+          Hi, my name is David Chae, and I'm the 20-year-old founder of by Chae.
+          What started from my love for food and sharing that love with others has now become something real.
+          <br />
+          <br />
+          Despite still being in college, I took a bet on myself this summer — and I'm beyond grateful for each and every comment, DM, and all the overwhelming support.
+          <br />
+          <br />
+          This is just the beginning — we're building the biggest matcha brand in the world, together.
+          <br />
+          <br />
+          With love 🫶,<br />
+          by Chae
+          <br />
+          <br />
+        </div>
+        <hr />
+        <div className="story-content-links">
+          <a href="https://www.instagram.com/bychae" target="_blank" rel="noopener noreferrer" className="social-link">
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@bychae" target="_blank" rel="noopener noreferrer" className="social-link">
+            TikTok
+          </a>
         </div>
       </div>
     </div>

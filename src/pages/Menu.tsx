@@ -4,13 +4,10 @@ import MenuItemCard from '../components/MenuItemCard';
 import './Menu.css';
 
 const Menu: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<Category>(Category.all);
+  const [activeCategory, setActiveCategory] = useState<Category>(Category.matcha);
   const [selectedQuantities, setSelectedQuantities] = useState<{ [key: number]: number }>({});
 
-  const filteredItems = (activeCategory === Category.all
-    ? menuItems
-    : menuItems.filter(item => item.category === activeCategory)
-  ).sort((a, b) => {
+  const filteredItems = menuItems.filter(item => item.category === activeCategory).sort((a, b) => {
     // Sort popular items first   
     if (a.popular && !b.popular) return -1;
     if (!a.popular && b.popular) return 1;

@@ -9,13 +9,14 @@
 
 .header.scrolled {
   background: var(--background-primary);
+  border-bottom: 2px solid black;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
   position: relative;
 }
 
@@ -39,8 +40,8 @@
 }
 
 .logo-image {
-  width: 200px; 
-  height: 200px;
+  width: 120px; 
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -52,14 +53,6 @@
 
 .header.scrolled .logo:hover {
   color: var(--accent-color);
-}
-
-.logo:focus {
-  outline: none;
-}
-
-.logo:hover {
-  color: rgba(255, 255, 255, 0.8);
 }
 
 .header.scrolled .logo:hover {
@@ -243,7 +236,7 @@
     background: var(--background-primary);
     flex-direction: column;
     gap: 0;
-    padding: 80px 0 0 0;
+    padding: 50px 0 0 0;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -253,56 +246,27 @@
 
   .mobile-controls {
     display: flex;
-    order: -1;
+    order: 1;
+    margin-left: 0;
+    margin-right: auto;
   }
 
   .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1001;
   }
 
-  .close-menu-button {
-  display: none;
-}
-
-  .close-menu-button:hover {
-    color: var(--accent-color);
-  }
-
-
-  
   .mobile-controls {
     display: flex;
   }
   
   .mobile-menu-button {
     display: block;
+    z-index: 1001;
   }
 
-  .close-menu-button {
-    display: flex;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--text-primary);
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1000;
-    transition: color 0.3s ease;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .close-menu-button:hover {
-    color: var(--accent-color);
-  }
-  
   .nav.nav-open {
     opacity: 1;
     visibility: visible;
@@ -332,14 +296,16 @@
     font-weight: 600;
   }
 
-
-  
   .header-content {
     padding: 1rem;
   }
   
   .logo {
     font-size: 1.2rem;
+  }
+  
+  .logo-image {
+    width: 120px;
   }
   
   .logo-emoji {

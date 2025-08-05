@@ -63,11 +63,6 @@ const Header: React.FC = () => {
           <img src="/images/bychae-black.png" alt="By Chae Logo" className="logo-image" />
         </Link>
 
-        {isMobileMenuOpen && (
-          <button className="close-menu-button" onClick={closeMobileMenu}>
-            ✕
-          </button>
-        )}
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
           <Link to="/menu" className={`nav-link ${isActive('/menu') ? 'active' : ''}`} onClick={closeMobileMenu}>MENU</Link>
           <Link to="/hours" className={`nav-link ${isActive('/hours') ? 'active' : ''}`} onClick={closeMobileMenu}>HOURS</Link>
