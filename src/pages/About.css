@@ -35,22 +35,18 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       margin-top: 2rem;
-    }
 
-    .social-link {
-      color: black;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-align: center;
-      padding: 1rem;
-      border: 2px solid black;
-      transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-      background: black;
-      color: white;
+      .social-link {
+        color: black;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+  
+      .social-link:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <div className="about">
       <div className="story-content">
-        <div className="story-content-title">ABOUT US</div>
+        <div className="story-content-title">MADE TO BE A DAILY RITUAL</div>
       </div>
       <div className="story-content">
         <div className="story-content-text">
@@ -27,10 +27,10 @@ const About: React.FC = () => {
         <hr />
         <div className="story-content-links">
           <a href="https://www.instagram.com/bychae" target="_blank" rel="noopener noreferrer" className="social-link">
-            Instagram
+            INSTAGRAM
           </a>
           <a href="https://www.tiktok.com/@bychae" target="_blank" rel="noopener noreferrer" className="social-link">
-            TikTok
+            TIKTOK
           </a>
         </div>
       </div>
