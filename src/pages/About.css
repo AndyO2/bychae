@@ -17,6 +17,7 @@
       font-weight: 700;
       text-align: center;
       line-height: 1;
+      margin-bottom: 2rem;
     }
 
     .story-content-image {
@@ -25,7 +26,6 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      margin-top: 2rem;
       
       img {
         width: 50%;
@@ -47,7 +47,6 @@
     .story-content-links {
       display: flex;
       flex-direction: row;
-      gap: 6rem;
       margin-top: 2rem;
       justify-content: flex-start;
       width: 100%;
@@ -106,7 +105,6 @@
 
   .social-link {
     font-size: 1rem;
-    padding: 0.8rem;
   }
 
   .story-content-image {

@@ -6,13 +6,10 @@
   --text-secondary: #666666;
   --text-light: #999999;
   --accent-color: #005904;
-  --accent-light: #005904;
-  --accent-dark: #005904;
   --border-color: #e0e0e0;
   --container-border: #d1d5db;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.2);
-  --primary-light: #005904;
 }
 
 html {

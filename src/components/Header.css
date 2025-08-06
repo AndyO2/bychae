@@ -4,9 +4,7 @@
   z-index: 1000;
   transition: all 0.3s ease;
   padding-top: 0;
-}
 
-.header.scrolled {
   background: var(--background-primary);
   border-bottom: 2px solid black;
 }
@@ -42,15 +40,15 @@
   width: 120px; 
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .logo:hover {
   color: var(--accent-color);
+  cursor: pointer;
 }
-
-
 
 .nav {
   display: flex;
@@ -68,8 +66,6 @@
   outline: none;
 }
 
-
-
 .nav-link:focus {
   outline: none;
 }
@@ -77,8 +73,6 @@
 .nav-link:hover {
   color: inherit;
 }
-
-
 
 .nav-link::after {
   content: '';
@@ -90,8 +84,6 @@
   background: black;
   transition: width 0.3s ease;
 }
-
-
 
 .nav-link:hover::after {
   width: 100%;
