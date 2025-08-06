@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Brasika';
+  src: url('./Brasika-Regular.woff2') format('woff2'),
+       url('./Brasika-Regular.woff') format('woff'),
+       url('./Brasika-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brasika';
+  src: url('./Brasika-Bold.woff2') format('woff2'),
+       url('./Brasika-Bold.woff') format('woff'),
+       url('./Brasika-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+} 
