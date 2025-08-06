@@ -24,10 +24,11 @@
   
     .story-content-text {
       color: black;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       text-align: left;
       line-height: 1.1;
       font-weight: 500;
+      font-family: 'Patrick Hand', 'Caveat', 'Brush Script MT', 'Segoe Script';
     }
 
     .story-content-links {

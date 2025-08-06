@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <div className="about">
       <div className="story-content">
-        <div className="story-content-title">MADE TO BE A DAILY RITUAL</div>
+        <div className="story-content-title">MORE THAN JUST MATCHA</div>
       </div>
       <div className="story-content">
         <div className="story-content-text">

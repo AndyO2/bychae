@@ -10,18 +10,17 @@ interface DayHours {
 }
 
 const Hours: React.FC = () => {
-  const headerImageUrl = "https://cdn.midjourney.com/video/31f89f36-f795-486f-9b4c-f30c340b1c99/3.mp4";
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-  const currentTime = new Date().toLocaleTimeString('en-US', { 
-    hour: '2-digit', 
+  const currentTime = new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit',
     minute: '2-digit',
-    hour12: true 
+    hour12: true
   });
 
   // Convert config hours to the format expected by the component
   const parseConfigHours = (): DayHours[] => {
     const hours: DayHours[] = [];
-    
+
     // Parse the config hours
     Object.entries(currentConfig.hours).forEach(([days, timeRange]) => {
       if (timeRange.toLowerCase() === 'closed') {
@@ -42,24 +41,24 @@ const Hours: React.FC = () => {
           const [startDay, endDay] = days.split('-');
           const dayRange = getDayRange(startDay, endDay);
           dayRange.forEach(day => {
-            hours.push({ 
-              day, 
-              open: formatTime(open), 
-              close: formatTime(close), 
-              isOpen: true 
+            hours.push({
+              day,
+              open: formatTime(open),
+              close: formatTime(close),
+              isOpen: true
             });
           });
         } else {
-          hours.push({ 
-            day: days, 
-            open: formatTime(open), 
-            close: formatTime(close), 
-            isOpen: true 
+          hours.push({
+            day: days,
+            open: formatTime(open),
+            close: formatTime(close),
+            isOpen: true
           });
         }
       }
     });
-    
+
     // Sort by day order
     const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return hours.sort((a, b) => dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));
@@ -69,16 +68,16 @@ const Hours: React.FC = () => {
     const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const startIndex = dayOrder.findIndex(day => day.toLowerCase().includes(startDay.toLowerCase()));
     const endIndex = dayOrder.findIndex(day => day.toLowerCase().includes(endDay.toLowerCase()));
-    
+
     if (startIndex === -1 || endIndex === -1) return [];
-    
+
     const days = [];
     let currentIndex = startIndex;
     do {
       days.push(dayOrder[currentIndex]);
       currentIndex = (currentIndex + 1) % 7;
     } while (currentIndex !== (endIndex + 1) % 7);
-    
+
     return days;
   };
 
@@ -87,11 +86,11 @@ const Hours: React.FC = () => {
     const cleanTime = time.trim().toLowerCase();
     const hour = parseInt(cleanTime.replace(/[^0-9]/g, ''));
     const isPM = cleanTime.includes('pm');
-    
+
     // Keep 12-hour format for display
     let displayHour = hour;
     if (hour === 0) displayHour = 12; // Convert 0 to 12 for 12 AM
-    
+
     return `${displayHour}:00 ${isPM ? 'PM' : 'AM'}`;
   };
 
@@ -101,60 +100,43 @@ const Hours: React.FC = () => {
     const now = new Date();
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
-    
+
     // Find today's hours
     const today = hours.find(day => day.day === currentDay);
-    
+
     if (!today || !today.isOpen) return false;
-    
+
     // Parse opening time
     const openMatch = today.open.match(/(\d+):(\d+)\s*(AM|PM)/);
     if (!openMatch) return false;
-    
+
     let openHour = parseInt(openMatch[1]);
     const openMinute = parseInt(openMatch[2]);
     const openPeriod = openMatch[3];
-    
+
     if (openPeriod === 'PM' && openHour !== 12) openHour += 12;
     if (openPeriod === 'AM' && openHour === 12) openHour = 0;
-    
+
     // Parse closing time
     const closeMatch = today.close.match(/(\d+):(\d+)\s*(AM|PM)/);
     if (!closeMatch) return false;
-    
+
     let closeHour = parseInt(closeMatch[1]);
     const closeMinute = parseInt(closeMatch[2]);
     const closePeriod = closeMatch[3];
-    
+
     if (closePeriod === 'PM' && closeHour !== 12) closeHour += 12;
     if (closePeriod === 'AM' && closeHour === 12) closeHour = 0;
-    
+
     const currentTimeMinutes = currentHour * 60 + currentMinute;
     const openTimeMinutes = openHour * 60 + openMinute;
     const closeTimeMinutes = closeHour * 60 + closeMinute;
-    
+
     return currentTimeMinutes >= openTimeMinutes && currentTimeMinutes <= closeTimeMinutes;
   };
 
   return (
     <div className="hours">
-      <div className="hours-header">
-        <video 
-          className="header-video"
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-        >
-          <source src={headerImageUrl} type="video/mp4" />
-        </video>
-        <div className="header-overlay" />
-        <div className="container">
-          <h1>Hours & Location</h1>
-          <p>Find us and know when we're serving delicious food</p>
-        </div>
-      </div>
-
       <div className="container">
         {/* Current Status */}
         <div className={`status-card ${isCurrentlyOpen() ? 'open' : 'closed'}`}>
@@ -174,8 +156,8 @@ const Hours: React.FC = () => {
             <h2>OPERATING HOURS</h2>
             <div className="hours-table">
               {hours.map((day, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`hours-row ${day.day === currentDay ? 'current-day' : ''}`}
                 >
                   <div className="day">{day.day}</div>
@@ -183,8 +165,8 @@ const Hours: React.FC = () => {
                     {day.isOpen ? `${day.open} - ${day.close}` : 'Closed'}
                   </div>
                   <div className="status">
-                    {day.day === currentDay && isCurrentlyOpen() ? '🟢 Open Now' : 
-                     day.day === currentDay ? '🔴 Closed' : ''}
+                    {day.day === currentDay && isCurrentlyOpen() ? '🟢 Open Now' :
+                      day.day === currentDay ? '🔴 Closed' : ''}
                   </div>
                 </div>
               ))}
@@ -197,7 +179,7 @@ const Hours: React.FC = () => {
             <div className="location-card">
               <div className="location-info">
                 <p>
-                  📍 <a 
+                  📍 <a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentConfig.address)}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -207,7 +189,7 @@ const Hours: React.FC = () => {
                   </a>
                 </p>
                 <p>
-                  📞 <a 
+                  📞 <a
                     href={`tel:${currentConfig.phone.replace(/\s+/g, '')}`}
                     className="phone-link"
                   >
@@ -215,7 +197,7 @@ const Hours: React.FC = () => {
                   </a>
                 </p>
                 <p>
-                  ✉️ <a 
+                  ✉️ <a
                     href={`mailto:${currentConfig.email}`}
                     className="email-link"
                   >
@@ -227,11 +209,11 @@ const Hours: React.FC = () => {
                 {process.env.REACT_APP_GOOGLE_MAPS_API_KEY ? (
                   <iframe
                     title="Location Map"
-                    width="600" 
-                    height="450" 
-                    style={{ border: 0 }} 
-                    loading="lazy" 
-                    allowFullScreen 
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW7cYtJAKlVQRKzF3ux7Fomo&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
                   />
                 ) : (
@@ -239,7 +221,7 @@ const Hours: React.FC = () => {
                     <div className="map-icon">🗺️</div>
                     <h3>Location</h3>
                     <p>{currentConfig.address}</p>
-                    <a 
+                    <a
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentConfig.address)}`}
                       target="_blank"
                       rel="noopener noreferrer"

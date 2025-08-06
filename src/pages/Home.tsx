@@ -98,20 +98,6 @@ const Home: React.FC = () => {
           <div className="delivery-text">
             <h2>CAN'T MAKE IT TO OUR CART?</h2>
             <p>Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
-
-            <div className="delivery-services">
-              <div className="delivery-service">
-                <a href="https://www.grubhub.com/restaurant/breaking-buns-5523-se-28th-ave-portland/2760956" target="_blank" rel="noopener noreferrer" className="btn btn-grubhub">
-                  ORDER ON GRUBHUB
-                </a>
-              </div>
-
-              <div className="delivery-service">
-                <a href="https://www.ubereats.com/store/breaking-buns-pdx-southeast-portland/jWObStTAVfuDqkV1yQzSxQ?diningMode=PICKUP&surfaceName=" target="_blank" rel="noopener noreferrer" className="btn btn-ubereats">
-                  ORDER ON UBER EATS
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
