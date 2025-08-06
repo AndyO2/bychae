@@ -27,7 +27,7 @@ export const menuItems: MenuItem[] = [
     price: 6.00,
     category: Category.matcha,
     popular: true,
-    image: "/images/gallery3.png"
+    image: "/images/matcha.png"
   },
   {
     id: 2,
@@ -35,7 +35,8 @@ export const menuItems: MenuItem[] = [
     price: 6.50,
     category: Category.matcha,
     popular: true,
-    image: "/images/gallery3.png"  },
+    image: "/images/cream-top-matcha.png"
+  },
   {
     id: 3,
     name: "Strawberry Cream Top Matcha",
@@ -51,7 +52,7 @@ export const menuItems: MenuItem[] = [
     price: 5.50,
     category: Category.coffee,
     popular: false,
-    image: "/images/gallery3.png"
+    image: "/images/korean-latte.png"
   },
   {
     id: 5,
@@ -59,7 +60,7 @@ export const menuItems: MenuItem[] = [
     price: 6.00,
     category: Category.coffee,
     popular: false,
-    image: "/images/gallery3.png"
+    image: "/images/cream-top-latte.png"
   },
   {
     id: 6,
@@ -67,7 +68,7 @@ export const menuItems: MenuItem[] = [
     price: 5.00,
     category: Category.coffee,
     popular: false,
-    image: "/images/gallery3.png"
+    image: "/images/coldbrew.png"
   },
   // Refresher
   {

@@ -119,12 +119,12 @@
 }
 
 .nav-link.active {
-  color: white;
+  color: black;
   font-weight: 600;
 }
 
 .header.scrolled .nav-link.active {
-  color: var(--text-primary);
+  color: black;
 }
 
 .nav-link.active::after {

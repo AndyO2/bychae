@@ -11,11 +11,6 @@ interface DayHours {
 
 const Hours: React.FC = () => {
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-  const currentTime = new Date().toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true
-  });
 
   // Convert config hours to the format expected by the component
   const parseConfigHours = (): DayHours[] => {
@@ -138,17 +133,6 @@ const Hours: React.FC = () => {
   return (
     <div className="hours">
       <div className="container">
-        {/* Current Status */}
-        <div className={`status-card ${isCurrentlyOpen() ? 'open' : 'closed'}`}>
-          <div className="status-icon">
-            {isCurrentlyOpen() ? '🟢' : '🔴'}
-          </div>
-          <div className="status-content">
-            <h2>We are currently {isCurrentlyOpen() ? 'OPEN' : 'CLOSED'}</h2>
-            <p>Today is {currentDay} • Current time: {currentTime}</p>
-          </div>
-        </div>
-
         {/* Hours and Location Side by Side */}
         <div className="hours-location-grid">
           {/* Hours Table */}

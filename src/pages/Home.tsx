@@ -97,7 +97,7 @@ const Home: React.FC = () => {
           </div>
           <div className="delivery-text">
             <h2>CAN'T MAKE IT TO OUR CART?</h2>
-            <p>Order your favorite Breaking Buns dishes through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
+            <p>Order your favorite By:Chae drinks through our delivery partners and have them delivered right to your door. Same great taste, convenient delivery.</p>
           </div>
         </div>
       </section>

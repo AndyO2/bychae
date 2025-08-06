@@ -32,10 +32,12 @@
     }
 
     .story-content-links {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      display: flex;
+      flex-direction: row;
+      gap: 6rem;
       margin-top: 2rem;
+      justify-content: flex-start;
+      width: 100%;
 
       .social-link {
         color: black;
@@ -77,7 +79,7 @@
   }
 
   .story-content-links {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
   }

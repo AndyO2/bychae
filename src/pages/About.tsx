@@ -26,12 +26,16 @@ const About: React.FC = () => {
         </div>
         <hr />
         <div className="story-content-links">
-          <a href="https://www.instagram.com/bychae" target="_blank" rel="noopener noreferrer" className="social-link">
-            INSTAGRAM
-          </a>
-          <a href="https://www.tiktok.com/@bychae" target="_blank" rel="noopener noreferrer" className="social-link">
-            TIKTOK
-          </a>
+          <div style={{ width: '50%' }}>
+            <a href="https://www.instagram.com/craftedbychae/" target="_blank" rel="noopener noreferrer" className="social-link">
+              INSTAGRAM
+            </a>
+          </div>
+          <div style={{ width: '50%' }}>
+            <a href="https://www.tiktok.com/@_bychae?lang=en" target="_blank" rel="noopener noreferrer" className="social-link">
+              TIKTOK
+            </a>
+          </div>
         </div>
       </div>
     </div>
