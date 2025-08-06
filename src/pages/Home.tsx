@@ -45,7 +45,7 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>ELEVATE YOUR MATCHA EXPERIENCE</h2>
           <p>Visit us today and experience the best matcha in the greater Boston area</p>
-          <Link to="/hours" className="btn">LEARN MORE</Link>
+          <Link to="/menu" className="btn">LEARN MORE</Link>
         </div>
       </section>
 
