@@ -92,13 +92,7 @@
 
 /* Mobile Responsive for Hero */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
 
-  .hero-content p {
-    font-size: 1.1rem;
-  }
 
   .hero-bottom-text {
     font-size: 3rem;
@@ -151,11 +145,7 @@
   text-decoration: underline;
 }
 
-.food-cart-illustration {
-  font-size: 8rem;
-  text-align: center;
-  animation: float 3s ease-in-out infinite;
-}
+
 
 /* Image Gallery Section */
 .image-gallery {
@@ -262,50 +252,9 @@
   font-weight: 500;
 }
 
-.delivery-services {
-  display: flex;
-  gap: 3rem;
-  justify-content: center;
-  align-items: flex-start;
-}
 
-.delivery-service {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
 
-.delivery-logo img {
-  height: 80px;
-  width: auto;
-  max-width: 200px;
-}
 
-/* Branded delivery buttons */
-.btn.btn-grubhub {
-  background: #ff6b35 !important;
-  color: white !important;
-  border: 2px solid #ff6b35 !important;
-}
-
-.btn.btn-grubhub:hover {
-  border-color: #e55a2b !important;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.btn.btn-ubereats {
-  background: #005904 !important;
-  color: white !important;
-  border: 2px solid #005904 !important;
-}
-
-.btn.btn-ubereats:hover {
-  border-color: #005904 !important;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -318,9 +267,7 @@
     display: block;
   }
 
-  .food-cart-illustration {
-    font-size: 6rem;
-  }
+
 
 
 
@@ -328,7 +275,6 @@
     padding: 0 1rem;
   }
 
-  .catchphrase-content h2,
   .cta h2 {
     font-size: 2rem;
   }
@@ -355,35 +301,5 @@
     font-size: 2rem;
   }
 
-  .delivery-services {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
 
-  .delivery-service {
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .delivery-logo img {
-    height: 60px;
-    max-width: 150px;
-  }
-
-  .hours-content h2 {
-    font-size: 2rem;
-  }
-
-  .hours-item {
-    padding: 0.8rem 1rem;
-  }
-
-  .hours-item .day {
-    font-size: 1rem;
-  }
-
-  .hours-item .time {
-    font-size: 0.9rem;
-  }
 } 

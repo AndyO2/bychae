@@ -5,7 +5,6 @@ import './Header.css';
 const Header: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   const isActive = (path: string) => {
@@ -40,27 +39,11 @@ const Header: React.FC = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // Handle scroll to change header background
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const heroHeight = window.innerHeight; // 100vh
-      setIsScrolled(scrollPosition > heroHeight - 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Force white header on hours, catering, and about pages (but not menu)
-  const forceWhiteHeader = ['/hours', '/catering', '/about'].some(path => location.pathname.startsWith(path));
-  const headerClass = `header${isScrolled || forceWhiteHeader ? ' scrolled' : ''}`;
-
   return (
-    <header className={headerClass} ref={headerRef}>
+    <header className="header scrolled" ref={headerRef}>
       <div className="header-content">
         <Link to="/" className="logo" onClick={closeMobileMenu}>
-          <img src="/images/bychae-black.png" alt="By Chae Logo" className="logo-image" />
+          <img src="/images/bychae.png" alt="By Chae Logo" className="logo-image" />
         </Link>
 
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>

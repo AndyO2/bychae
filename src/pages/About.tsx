@@ -6,6 +6,9 @@ const About: React.FC = () => {
     <div className="about">
       <div className="story-content">
         <div className="story-content-title">MORE THAN JUST MATCHA</div>
+        <div className="story-content-image">
+          <img src="/images/aboutus.png" alt="Matcha" />
+        </div>
       </div>
       <div className="story-content">
         <div className="story-content-text">
