@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import CartSidebar from './components/CartSidebar';
 import { CartProvider } from './context/CartContext';
 import { OrderProvider } from './context/OrderContext';
+import { TenantProvider } from './context/TenantContext';
 import { useScrollToTop } from './hooks/useScrollToTop';
 
 import Home from './pages/Home';
@@ -18,19 +19,21 @@ import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
-    <OrderProvider>
-      <CartProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </CartProvider>
-    </OrderProvider>
+    <TenantProvider>
+      <OrderProvider>
+        <CartProvider>
+          <Router>
+            <AppContent />
+          </Router>
+        </CartProvider>
+      </OrderProvider>
+    </TenantProvider>
   );
 }
 
 function AppContent() {
   useScrollToTop();
-  
+
   return (
     <div className="App">
       <Analytics />

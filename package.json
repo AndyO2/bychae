@@ -7,6 +7,8 @@
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
     "@vercel/analytics": "^1.5.0",
+    "dotenv": "^17.2.1",
+    "firebase": "^12.1.0",
     "lucide-react": "^0.532.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "switch-config": "node scripts/switch-config.js"
+    "switch-config": "node scripts/switch-config.js",
+    "migrate-to-firebase": "node scripts/migrate-to-firebase.js",
+    "populate-tenant-menu": "node scripts/populate-tenant-menu.js"
   },
   "eslintConfig": {
     "extends": [
