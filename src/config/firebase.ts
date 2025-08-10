@@ -2,16 +2,21 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 
-// Your Firebase configuration
+// Your Firebase configuration from environment variables
 const firebaseConfig = {
-    apiKey: "AIzaSyDdN9vOzMgJiLIctrs2eXiCUs2o0R_GIcE",
-    authDomain: "cartify-378a6.firebaseapp.com",
-    projectId: "cartify-378a6",
-    storageBucket: "cartify-378a6.firebasestorage.app",
-    messagingSenderId: "644537028667",
-    appId: "1:644537028667:web:839fd55e8469f933bf0c1e",
-    measurementId: "G-TPDW35T4GM"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
+
+// Validate that required environment variables are present
+if (!process.env.REACT_APP_FIREBASE_API_KEY) {
+    throw new Error('Missing Firebase configuration. Please check your environment variables.');
+}
 
 // Initialize Firebase only if no apps exist
 let app;
