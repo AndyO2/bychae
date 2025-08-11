@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       <section className="hero">
         <div className="hero-background" style={{ backgroundImage: `url(${heroBackgroundImage})` }} />
         <div className="hero-bottom-overlay">
-          <div className="hero-bottom-left">GET THE SCOOP</div>
+          <div className="hero-bottom-left">MORE THAN MATCHA</div>
           <div className="hero-bottom-right">
             <div className="hero-bottom-text">Scoop up our summer specials, inspired by iconic ice cream flavors. Our new Salted Pistachio Matcha, Cookies & Cream Matcha and Rocky Road Latte are ready to sip.</div>
             <Link to="/menu" className="btn">
