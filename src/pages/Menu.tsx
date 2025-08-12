@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
   // Set default active category when categories are loaded
   useEffect(() => {
     if (categories.length > 0 && !activeCategory) {
-      setActiveCategory(categories[0].id || categories[0]);
+      setActiveCategory(categories[0].category_name || 'Unknown');
     }
   }, [categories, activeCategory]);
 
@@ -68,15 +68,20 @@ const Menu: React.FC = () => {
         {/* Category Filter */}
         {categories.length > 0 ? (
           <div className="category-filter">
-            {categories.map((category: any) => (
-              <button
-                key={category.id || category}
-                className={`category-btn ${activeCategory === (category.id || category) ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category.id || category)}
-              >
-                {(category.name || category).toUpperCase()}
-              </button>
-            ))}
+            {categories.sort((a: any, b: any) => a.order - b.order).map((category: any) => {
+              // Extract category name from the {order, category_name} structure
+              const categoryName = category.category_name || 'Unknown';
+
+              return (
+                <button
+                  key={categoryName}
+                  className={`category-btn ${activeCategory === categoryName ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(categoryName)}
+                >
+                  {categoryName.toUpperCase()}
+                </button>
+              );
+            })}
           </div>
         ) : (
           <div className="category-filter">
