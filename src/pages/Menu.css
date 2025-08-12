@@ -50,7 +50,7 @@
 /* Category Filter */
 .category-filter {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 1rem;
   margin: 3rem 0;
   flex-wrap: wrap;
