@@ -4,9 +4,7 @@
   z-index: 1000;
   transition: all 0.3s ease;
   padding-top: 0;
-
   background: var(--background-primary);
-  border-bottom: 2px solid black;
 }
 
 .header-content {
@@ -239,6 +237,4 @@
     width: 120px;
     height: 120px;
   }
-  
-
 } 
